@@ -1,0 +1,34 @@
+
+.gameItem {
+	height: 340px;
+	width: 335px;
+	margin: 10px;
+
+	border-radius: 20px;	
+	background-color: #202020;
+
+	color: #fff;
+
+	transition: transform .3s ease-out;
+	overflow: hidden;
+}
+
+.gameItem:hover {
+	transform: scale(1.03);
+	cursor: pointer;
+}
+
+.gameItemLogo {
+	object-fit: cover;
+	width: 100%;
+	height: 65%;
+}
+
+.gameItemInfo {
+
+}
+
+.gameItemTitle {
+	font-size: 22px;
+	font-weight: 800;
+}

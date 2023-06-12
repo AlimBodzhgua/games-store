@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, NavLink} from 'react-router-dom';
 
 import GamesPage from './pages/GamesPage';
-import GameInfoPage from './pages/GameInfoPage';
+import GameDetailsPage from './pages/GameDetailsPage';
 
 import './App.css';
 
@@ -12,10 +12,8 @@ export default function App() {
         <>
             <Routes>
                 <Route path='/' element={<GamesPage />}/>
-                <Route path='/game/:id' element={<GameInfoPage />}/>
+                <Route path='/game/:id' element={<GameDetailsPage />}/>
             </Routes>
-
-            <GamesPage />
         </>
     );
 }

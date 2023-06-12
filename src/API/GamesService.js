@@ -12,4 +12,14 @@ export default class GamesService {
 		const response = await axios.get('https://api.rawg.io/api/games?key=3cfb0003af6a422ab1e4230e1a8c4b39&page=1&page_size=25');
 		return response.data;
 	}
+
+	static async getGameDetails(id) {
+		const response = await axios.get(`https://api.rawg.io/api/games/${id}?key=3cfb0003af6a422ab1e4230e1a8c4b39&page=1&page_size=25`)
+		return response.data;
+	}
+
+	static async getGameScreenshots(id) {
+		const response = await axios.get(`https://api.rawg.io/api/games/${id}/screenshots?key=3cfb0003af6a422ab1e4230e1a8c4b39`)
+		return response.data;
+	}
 }

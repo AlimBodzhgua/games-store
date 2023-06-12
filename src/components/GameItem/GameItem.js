@@ -6,7 +6,7 @@ function GameItem({game}) {
 	const navigate = useNavigate();
 
 	const handleClick = () => {
-		console.log(game.id);
+		navigate('/game/' + game.id);
 	}
 
 	return (

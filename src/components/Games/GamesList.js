@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import GameItem from '../GameItem/GameItem.js';
-import classes from './games-list.module.css';
+import GameItem from './GameItem.js';
+import classes from './games.module.css';
 
 export default function GamesList({games}) {
 	return (

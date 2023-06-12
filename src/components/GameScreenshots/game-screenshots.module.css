@@ -1,0 +1,26 @@
+
+.button {
+	border: none;
+	color: #fff;
+	background-color: #202020;
+
+	color: #e6e6e6;
+    font-size: 15px;
+    font-weight: 600;
+
+    padding: 10px 15px;
+}
+
+.button:hover {
+	cursor: pointer;
+}
+
+.screenshots {
+	display: flex;
+	justify-content: space-between;
+}
+
+.screenshot {
+	width: 230px;
+	height: 165px;
+}

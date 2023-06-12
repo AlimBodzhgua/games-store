@@ -1,0 +1,13 @@
+.list {
+	display: flex;
+}
+
+.icon {
+	width: 23px;
+	height: 23px;
+	margin-right: 6px;
+}
+
+.icon:last-child {
+	margin-right: 0;
+}

@@ -17,7 +17,6 @@ export default function GamesPage() {
 
 	return (
 		<div className="page">
-			<h2>Games Page</h2>
             {isLoading 
                 ? <h2>Loading movies...</h2>
                 : <GamesList games={games} />

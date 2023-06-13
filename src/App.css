@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap');
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   padding: 0;
   margin: 0;
   font-size: 14px;
   background-color: #151515;
   color: #fff;
   font-family: 'Roboto', sans-serif;
+}
+
+#root {
+  height: inherit;
 }
 
 *,
@@ -24,8 +33,14 @@ ol, ul {
 }
 
 .page {
-  height: 100vh;
+  height: 100%;
   width: 100%;
+}
+
+.page--centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page__details {

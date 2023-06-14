@@ -1,4 +1,4 @@
-import PlatformsList from 'components/PlatformsList/PlatformsList.js';
+import GamePlatformsList from 'components/GamePlatformsList/GamePlatformsList.js';
 import MyList from 'components/MyList/MyList.js';
 import PropTypes from 'prop-types';
 
@@ -13,7 +13,7 @@ export default function GameDetailsInfo({image, name, platforms, tags, genres, d
 					<h3>{name}</h3>
 					<div style={{display: 'flex'}}>
 						<span>Платформы:</span>
-						<PlatformsList platforms={platforms}/>
+						<GamePlatformsList platforms={platforms}/>
 					</div>
 					<div style={{display: 'flex'}}>
 						<span>Тэги:</span>

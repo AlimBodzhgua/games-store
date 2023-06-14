@@ -1,4 +1,12 @@
 
+.games__list {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+
+	width: 85%;
+}
+
 .item {
 	height: 340px;
 	width: 335px;
@@ -49,8 +57,3 @@
 	right: 10px;
 }
 
-.games__list {
-	display: flex;
-	justify-content: space-evenly;
-	flex-wrap: wrap;
-}

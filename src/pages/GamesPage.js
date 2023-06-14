@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import GamesList from 'components/Games/GamesList.js';
+import Sidebar from 'components/Sidebar/Sidebar.js';
 
 import GamesService from 'API/GamesService'
 import {useFetching} from 'hooks/useFetching';
@@ -17,6 +18,7 @@ export default function GamesPage() {
 
 	return (
 		<div className="page">
+        <Sidebar />
             {isLoading 
                 ? <h2>Loading movies...</h2>
                 : <GamesList games={games} />

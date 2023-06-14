@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-import classes from './platforms-list.module.css';
+import classes from './game-platforms-list.module.css';
 
 export default function PlatformsList({platforms}) {
-	console.log(platforms);
 	return (
 		<ol className={classes.list}>
 			{platforms.map(obj => 

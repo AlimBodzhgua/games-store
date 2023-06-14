@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "email": "alim@mail.ru",
+      "password": "$2a$10$Wr.ejnNCMlCRxFDV/MZhRum2mK9rLXYOpaKgSwYJQvg7ms3me..dS",
+      "login": "AlimBodzhgua",
+      "library": [],
+      "id": 1
+    }
+  ]
+}

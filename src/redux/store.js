@@ -1,8 +1,13 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import {gamesReducer} from 'redux/reducers/gamesReducer';
+import {userReducer} from 'redux/reducers/user/userReducer';
 
 const rootReducer = combineReducers({
 	games: gamesReducer,
+	users: userReducer,
 })
 
-export const store = createStore(rootReducer);
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+export const store = createStore(rootReducer, composeEnhancers(applyMiddleware()));

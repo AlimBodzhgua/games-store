@@ -1,9 +1,17 @@
 import classes from './auth-forms.module.css';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
+import {useDispatch} from 'react-redux';
+import UserService from 'API/UserService.js';
+
+import {
+	setUserAction, 
+	setErrorAction, 
+	setIsLoadingAction, 
+	setIsAuthAction
+} from 'redux/reducers/user/actions.js';
 
 export default function RegisterForm() {
-
 	const {
 		register,
 		handleSubmit,
@@ -11,8 +19,29 @@ export default function RegisterForm() {
 		formState: { errors }
 	} = useForm();
 
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	const onSubmit = (data) => {
-		console.log(data);
+		const newUser = {...data, library: []}
+
+		async function register(user) {
+			try {
+				dispatch(setIsLoadingAction(true));
+
+				const {data} = await UserService.registerUser(newUser)
+				
+				localStorage.setItem('auth', 'true');
+				localStorage.setItem('user', JSON.stringify(data));
+				
+				dispatch(setUserAction(data));
+				dispatch(setIsAuthAction(true));
+			} catch(error) {
+				dispatch(setErrorAction(error));
+			}
+		}
+		register(newUser);
+		
 	}
 
 	return (

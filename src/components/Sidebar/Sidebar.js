@@ -10,7 +10,6 @@ export default function Sidebar() {
 	const [platforms, setPlatforms] = useState([]);
 	const [fetchGenres, genresLoading, genresError] = useFetching(async() => {
 		const response = await GamesService.getGenres();
-		console.log(response)
 		setGenres(response.results);
 	})
 

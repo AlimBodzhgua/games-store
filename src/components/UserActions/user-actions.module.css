@@ -1,0 +1,12 @@
+
+.actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 20%;
+}
+
+.actions__link {
+	color: #fff;
+	font-size: 16px;
+}

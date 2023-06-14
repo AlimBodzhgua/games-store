@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap');
 
+:root {
+  --color-primary: #151515;
+  --color-secondary: #202020;
+  --color-primary-fonts: rgba(255, 255, 255, 0.6);
+}
+
 html {
   height: 100%;
 }

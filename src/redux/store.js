@@ -4,7 +4,7 @@ import {userReducer} from 'redux/reducers/user/userReducer';
 
 const rootReducer = combineReducers({
 	games: gamesReducer,
-	users: userReducer,
+	user: userReducer,
 })
 
 

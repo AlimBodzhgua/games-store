@@ -20,10 +20,8 @@ export default function App() {
     useEffect(() => {
         if (isUserLoggedIn()) {
             const user = localStorage.getItem('user');
-            dispatch(setUserAction(user));
+            dispatch(setUserAction(JSON.parse(user)));
             dispatch(setIsAuthAction(true));
-        } else {
-            console.log('User not logged in');
         }
     }, [])
 

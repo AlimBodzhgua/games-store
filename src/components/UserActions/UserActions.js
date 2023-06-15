@@ -5,26 +5,21 @@ import {useSelector, useDispatch} from 'react-redux';
 import {setIsAuthAction, setUserAction} from 'redux/reducers/user/actions';
 
 export default function UserActions() {
-	const { isAuth, user } = useSelector(state => state.user);
+	const user = useSelector(state => state.user);
 	const dispatch = useDispatch();
-
-	/*useEffect(() => {
-		console.log(JSON.parse(user).user.login);
-	}, [])*/
 
 	const handleClick = (e) => {
 		e.preventDefault();
 		localStorage.removeItem('user');
-		localStorage.removeItem('auth');
 		dispatch(setIsAuthAction(false));
 		dispatch(setUserAction(null));
 	}
 
 	return (
 		<div className={classes.actions}>
-			{isAuth 
+			{user.isAuth 
 				?	<div>
-						<h3>{JSON.parse(user).user.login}</h3>
+						<h3>{user.data.user.login}</h3>
 						<button onClick={handleClick}>logout</button>
 					</div>
 				: 	<>
@@ -32,7 +27,6 @@ export default function UserActions() {
 						<NavLink to='/login' className={classes.actions__link}>Login</NavLink>			
 					</>
 			}
-			
 		</div>
 	)
 }

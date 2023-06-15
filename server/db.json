@@ -6,6 +6,13 @@
       "login": "AlimBodzhgua",
       "library": [],
       "id": 1
+    },
+    {
+      "email": "alim2@mail.ru",
+      "password": "$2a$10$vKzJko6w/NnvCviaY4aoNekC17zj/id79KYmvomQUa6lnH.dMytGa",
+      "login": "alim23",
+      "library": [],
+      "id": 2
     }
   ]
 }

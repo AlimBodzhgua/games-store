@@ -7,7 +7,7 @@ const initialState = {
 	isAuth: false,
 	isLoading: false,
 	error: '',
-	user: null,
+	data: null,
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -19,7 +19,7 @@ export const userReducer = (state = initialState, action) => {
 		case SET_AUTH:
 			return {...state, isLoading: false, isAuth: action.payload}
 		case SET_USER:
-			return {...state, user: action.payload};
+			return {...state, data: action.payload};
 		default:
 			return state;
 	}

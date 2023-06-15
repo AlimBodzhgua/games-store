@@ -29,13 +29,12 @@ export default function RegisterForm() {
 			try {
 				dispatch(setIsLoadingAction(true));
 
-				const {data} = await UserService.registerUser(newUser)
-				
-				localStorage.setItem('auth', 'true');
+				const {data} = await UserService.registerUser(newUser);
 				localStorage.setItem('user', JSON.stringify(data));
 				
 				dispatch(setUserAction(data));
 				dispatch(setIsAuthAction(true));
+				navigate('/');
 			} catch(error) {
 				dispatch(setErrorAction(error));
 			}

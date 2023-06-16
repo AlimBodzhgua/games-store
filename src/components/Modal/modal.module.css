@@ -1,0 +1,46 @@
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	height: 100vh;
+	width: 100vw;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: rgba(0, 0, 0, .4);
+}
+
+
+.modal__inner {
+	position: relative;
+
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.modal__close {
+	position: absolute;
+	top: 3px;
+	right: 8px;
+	font-size: 28px;
+	color: #fff;
+
+	z-index: 1000;
+
+	background: none;
+	border: none;
+
+	transition: color .3s linear,
+				transform .3s linear
+}
+
+.modal__close:hover {
+	color: grey;
+	cursor: pointer;
+
+	transform: rotate(90deg);
+}

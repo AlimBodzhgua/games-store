@@ -1,13 +1,18 @@
 import {useState, useEffect} from 'react';
+import {NavLink, useNavigate, useLocation} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {addGameAction} from 'redux/reducers/user/actions';
 import PropTypes from 'prop-types';
-import classes from './games.module.css';
-import {NavLink, useNavigate} from 'react-router-dom';
 import PlatformsIconList from './PlatformsIcon/PlatformsIconList.js';
 
+import classes from './games.module.css';
+
 function GameItem({game}) {
-	const navigate = useNavigate();
 	const [platformsIcon, setPlatformsIcon] = useState([]);
 
+	const navigate = useNavigate();
+	const location = useLocation();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const platforms = new Set();
@@ -24,7 +29,15 @@ function GameItem({game}) {
 
 	const addGame = (e) => {
 		e.stopPropagation();
-		console.log('add');
+		const add = {
+			id: game.id, 
+			name: game.name,
+			released: game.released,
+			metacritic: game.metacritic,
+			background_image: game.background_image,
+			platforms: game.platforms,
+		}
+		dispatch(addGameAction(add));
 	}
 
 	return (
@@ -37,7 +50,9 @@ function GameItem({game}) {
             	<h3 className={classes.title}>{game.name}</h3>
             	<div className={classes.metacritic}>{game.metacritic}</div>
             </div>
-            <button className={classes.add} onClick={addGame}>+</button>
+            {location.pathname === '/' &&
+            	<button className={classes.add} onClick={addGame}>+</button>
+        	}
         </li>
 	)
 }

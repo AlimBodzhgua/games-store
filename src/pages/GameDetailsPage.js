@@ -20,8 +20,6 @@ export default function GameDetailsPage() {
 
 	useEffect(() => {
 		GamesService.getGameScreenshots(gameDetails.id)
-			.then(data => console.log(data))
-			.catch(err => console.log('err:', err));
 	}, [gameDetails])
 
 	return (

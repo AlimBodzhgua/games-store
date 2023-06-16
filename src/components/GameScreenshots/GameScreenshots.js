@@ -13,9 +13,6 @@ export default function GameScreenshots({id}) {
 		setScreenshots(response.results);
 	})
 
-	useEffect(() => {
-	}, [])
-
 	const handleClick = (e) => {
 		e.preventDefault();
 		setShowScreenshots(!showScreenshots);
@@ -24,10 +21,9 @@ export default function GameScreenshots({id}) {
 
 	return (
 		<div>
-			<button 
-				onClick={handleClick}
-				className={classes.button}
-			>+ Show screenshots</button>
+			<button onClick={handleClick} className={classes.button}>
+				{showScreenshots ? '- ' : '+ '} Show screenshots
+			</button>
 			{showScreenshots && 
 				<div className={classes.screenshots}>
 					{screenshots.length &&

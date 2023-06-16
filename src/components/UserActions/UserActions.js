@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom';
 import classes from './user-actions.module.css';
 import {useSelector, useDispatch} from 'react-redux';
 import {setIsAuthAction, setUserAction} from 'redux/reducers/user/actions';
+import {ReactComponent as Signout} from 'assets/icons/signout_icon.svg';
 
 export default function UserActions() {
 	const user = useSelector(state => state.user);
@@ -10,18 +11,23 @@ export default function UserActions() {
 
 	const handleClick = (e) => {
 		e.preventDefault();
-		localStorage.removeItem('user');
-		dispatch(setIsAuthAction(false));
-		dispatch(setUserAction(null));
+		const confirm = window.confirm('Are you sure you want to logout?');
+		if (confirm) {
+			localStorage.removeItem('user');
+			dispatch(setIsAuthAction(false));
+			dispatch(setUserAction(null));
+		}
 	}
 
 	return (
 		<div className={classes.actions}>
 			{user.isAuth 
-				?	<div>
+				?	<>
 						<h3>{user.data.user.login}</h3>
-						<button onClick={handleClick}>logout</button>
-					</div>
+						<button onClick={handleClick} className={classes.btn}>
+							<Signout />
+						</button>
+					</>
 				: 	<>
 						<NavLink to='/register' className={classes.actions__link}>Register</NavLink>
 						<NavLink to='/login' className={classes.actions__link}>Login</NavLink>			

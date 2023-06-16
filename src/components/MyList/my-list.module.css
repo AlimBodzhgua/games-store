@@ -2,6 +2,7 @@
 .myList {
 	display: flex;
 	flex-wrap: wrap;
+	width: 100%;
 }
 
 .listItem {
@@ -9,7 +10,6 @@
 	margin: 4px;
 	padding: 5px 8px;
 
-	/*color: hsla(0, 0%, 100%,.6);*/
 	color: #e6e6e6;
 	font-weight: 600;
 

@@ -2,10 +2,13 @@
 
 .sidebar {
 	width: 15%;
-	border: 1px solid white;
 	padding: 4px 6px;
 }
 
+.sidebar__link {
+	color: #fff;
+	text-decoration: none;
+}
 
 .section_title {
 	font-size: 24px;
@@ -13,4 +16,18 @@
 	color: #fff;
 
 	margin-bottom: 8px;
+}
+
+.section_link {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+	padding: 3px 0;
+}
+
+
+.home__icon,
+.library__icon {
+	height: 25px;
+	margin-right: 4px;
 }

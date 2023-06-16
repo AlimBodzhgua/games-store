@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {useFetching} from '../hooks/useFetching';
+import Sidebar from 'components/Sidebar/Sidebar.js';
 import GamesService from '../API/GamesService';
 import GameDetailsInfo from 'components/GameDetailsInfo/GameDetailsInfo.js';
 import GameScreenshots from 'components/GameScreenshots/GameScreenshots.js';
@@ -24,20 +25,23 @@ export default function GameDetailsPage() {
 	}, [gameDetails])
 
 	return (
-		<div className="page__details">
-			{Object.keys(gameDetails).length && 
-				<>
-					<GameDetailsInfo 
-						image={gameDetails.background_image}
-						name={gameDetails.name}
-						genres={gameDetails.genres}
-						tags={gameDetails.tags}
-						platforms={gameDetails.platforms}
-						description={gameDetails.description_raw}
-					/>
-					<GameScreenshots id={gameDetails.id} / >
-				</>
-			}
+		<div className="page">
+			<Sidebar />
+			<div className="page__details">
+				{Object.keys(gameDetails).length && 
+					<>
+						<GameDetailsInfo 
+							image={gameDetails.background_image}
+							name={gameDetails.name}
+							genres={gameDetails.genres}
+							tags={gameDetails.tags}
+							platforms={gameDetails.platforms}
+							description={gameDetails.description_raw}
+						/>
+						<GameScreenshots id={gameDetails.id} / >
+					</>
+				}
+			</div>
 		</div>
 	)
 }

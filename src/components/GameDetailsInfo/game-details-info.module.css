@@ -1,8 +1,41 @@
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.picture {
+    height: 335px;
+    width: 345px;
+    object-fit: cover;
+}
+
+.details {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.section {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.section__title {
+    width: 20%;
+}
+
+.section__info {
+    width: 80%;
+}
+
+.title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
 
 
 .text {
 	margin: 15px 0;
-	padding: 10px 20px;
+	padding: 10px 0px;
 
 	color: #e6e6e6;
     font-size: 15px;
@@ -10,3 +43,4 @@
     letter-spacing: normal;
     white-space: pre-line;
 }
+

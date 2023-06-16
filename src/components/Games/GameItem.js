@@ -8,9 +8,6 @@ function GameItem({game}) {
 	const navigate = useNavigate();
 	const [platformsIcon, setPlatformsIcon] = useState([]);
 
-	const handleClick = () => {
-		navigate('/game/' + game.id);
-	}
 
 	useEffect(() => {
 		const platforms = new Set();
@@ -20,6 +17,15 @@ function GameItem({game}) {
 		})
 		setPlatformsIcon([...platforms])
 	}, [])
+
+	const handleClick = () => {
+		navigate('/game/' + game.id);
+	}
+
+	const addGame = (e) => {
+		e.stopPropagation();
+		console.log('add');
+	}
 
 	return (
 		<li onClick={handleClick} className={classes.item}>
@@ -31,6 +37,7 @@ function GameItem({game}) {
             	<h3 className={classes.title}>{game.name}</h3>
             	<div className={classes.metacritic}>{game.metacritic}</div>
             </div>
+            <button className={classes.add} onClick={addGame}>+</button>
         </li>
 	)
 }

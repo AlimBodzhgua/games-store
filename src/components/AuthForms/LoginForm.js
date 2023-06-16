@@ -25,7 +25,8 @@ export default function LoginForm() {
 			try {
 				dispatch(setIsLoadingAction(true));
 
-				const { data } = await UserService.login(user);
+				let { data } = await UserService.login(user);
+				data = {token: data.accessToken, ...data.user};
 				localStorage.setItem('user', JSON.stringify(data));
 
 				dispatch(setUserAction(data));

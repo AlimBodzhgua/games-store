@@ -13,6 +13,13 @@
       "login": "alim23",
       "library": [],
       "id": 2
+    },
+    {
+      "email": "alimbo@mail.ru",
+      "password": "$2a$10$mB78DSN6wbSnK1axzPKo2eZ4Djua2uXXHJCgBSZuMknksYGxu5mk6",
+      "login": "alimbo1",
+      "library": [],
+      "id": 3
     }
   ]
 }

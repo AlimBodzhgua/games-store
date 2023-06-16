@@ -1,5 +1,5 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
-import {gamesReducer} from 'redux/reducers/gamesReducer';
+import {gamesReducer} from 'redux/reducers/games/gamesReducer';
 import {userReducer} from 'redux/reducers/user/userReducer';
 
 const rootReducer = combineReducers({

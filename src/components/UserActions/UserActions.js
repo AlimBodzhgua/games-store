@@ -23,7 +23,7 @@ export default function UserActions() {
 		<div className={classes.actions}>
 			{user.isAuth 
 				?	<>
-						<h3>{user.data.user.login}</h3>
+						<h3>{user.data.login}</h3>
 						<button onClick={handleClick} className={classes.btn}>
 							<Signout />
 						</button>

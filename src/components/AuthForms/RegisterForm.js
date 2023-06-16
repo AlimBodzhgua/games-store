@@ -29,7 +29,8 @@ export default function RegisterForm() {
 			try {
 				dispatch(setIsLoadingAction(true));
 
-				const {data} = await UserService.registerUser(newUser);
+				let {data} = await UserService.registerUser(newUser);
+				data = {token: data.accessToken, ...data.user};
 				localStorage.setItem('user', JSON.stringify(data));
 				
 				dispatch(setUserAction(data));

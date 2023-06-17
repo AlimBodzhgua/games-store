@@ -33,3 +33,10 @@ export const addGameAction = (game) => ({
 	type: ADD_GAME,
 	payload: game,
 })
+
+export const removeGameAction = (id) => ({
+	type: REMOVE_GAME,
+	payload: id,
+})
+
+export const clearLibraryAction = () => ({type: CLEAR_LIBRARY});

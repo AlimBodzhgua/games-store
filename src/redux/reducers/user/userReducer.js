@@ -29,6 +29,12 @@ export const userReducer = (state = initialState, action) => {
 					...state.data, 
 					library: [...state.data.library, action.payload]
 				}};
+		case CLEAR_LIBRARY:
+			return {...state, data: {...state.data, library: []}};
+		case REMOVE_GAME:
+			return {...state, data: {...state.data, library: 
+				state.data.library.filter(game => game.id != action.payload)
+			}};
 		default:
 			return state;
 	}

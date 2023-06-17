@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {NavLink, useNavigate, useLocation} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
-import {addGameAction} from 'redux/reducers/user/actions';
+import {useDispatch, useSelector} from 'react-redux';
+import {addGameAction, removeGameAction} from 'redux/reducers/user/actions';
 import PropTypes from 'prop-types';
 import PlatformsIconList from './PlatformsIcon/PlatformsIconList.js';
 
@@ -40,6 +40,11 @@ function GameItem({game}) {
 		dispatch(addGameAction(add));
 	}
 
+	const removeGame = (e) => {
+		e.stopPropagation();
+		dispatch(removeGameAction(game.id));
+	}
+
 	return (
 		<li onClick={handleClick} className={classes.item}>
             <img src={game.background_image} className={classes.logo}/>
@@ -52,6 +57,10 @@ function GameItem({game}) {
             </div>
             {location.pathname === '/' &&
             	<button className={classes.add} onClick={addGame}>+</button>
+            	/*<button className={classes.add} onClick={addGame}>&#x2714;</button>*/
+        	}
+        	{location.pathname === '/library' &&
+        		<button className={classes.add} onClick={removeGame}>-</button>
         	}
         </li>
 	)

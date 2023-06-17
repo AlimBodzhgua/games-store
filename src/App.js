@@ -5,7 +5,7 @@ import {isUserLoggedIn} from 'utils/utils.js';
 import {setUserAction, setIsAuthAction} from 'redux/reducers/user/actions.js';
 import './App.css';
 
-const GamesPage = React.lazy(() => import('pages/GamesPage'));
+const HomePage = React.lazy(() => import('pages/HomePage'));
 const GameDetailsPage = React.lazy(() => import('pages/GameDetailsPage'));
 const LibraryPage = React.lazy(() => import('pages/LibraryPage'));
 const RegisterPage = React.lazy(() => import('pages/RegisterPage'));
@@ -27,7 +27,7 @@ export default function App() {
         <>
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
-                    <Route path='/' element={<GamesPage />}/>
+                    <Route path='/' element={<HomePage />}/>
                     <Route path='/game/:id' element={<GameDetailsPage />}/>
                     <Route path='/library' element={<LibraryPage />}/>
                     <Route path='/register' element={<RegisterPage />}/>

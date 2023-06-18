@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classes from './screenshots.module.css';
 import Modal from 'components/Modal/Modal.js';
 
-export default function ScreenshotsList(screenshots) {
+export default function ScreenshotsList({screenshots}) {
 	const [increasedScreenshot, setIncreasedScreenshot] = useState(false);
 	const increaseScreenshot = () => {
 		setIncreasedScreenshot(!increasedScreenshot);
@@ -11,7 +11,7 @@ export default function ScreenshotsList(screenshots) {
 
 	return (
 		<>
-			{screenshots['screenshots'].map(screenshot =>
+			{screenshots.map(screenshot =>
 				<div key={screenshot.id}>
 					<img 
 						onClick={increaseScreenshot}
@@ -30,4 +30,8 @@ export default function ScreenshotsList(screenshots) {
 			)}
 		</>
 	)
+}
+
+ScreenshotsList.propTypes = {
+	screenshots: PropTypes.arrayOf(PropTypes.object).isRequired
 }

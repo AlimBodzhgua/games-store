@@ -3,8 +3,8 @@ import axios from 'axios';
 const key = '3cfb0003af6a422ab1e4230e1a8c4b39'
 
 export default class GamesService {
-	static async getGames() {
-		const response = await axios.get('https://api.rawg.io/api/games?key=3cfb0003af6a422ab1e4230e1a8c4b39&page=1&page_size=25');
+	static async getGames(page) {
+		const response = await axios.get(`https://api.rawg.io/api/games?key=3cfb0003af6a422ab1e4230e1a8c4b39&page=1&page=${page}&page_size=25`);
 		return response.data;
 	}
 

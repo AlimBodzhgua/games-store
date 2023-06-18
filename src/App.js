@@ -3,6 +3,7 @@ import {Routes, Route, NavLink} from 'react-router-dom';
 import {useDispatch} from 'react-redux'; 
 import {isUserLoggedIn} from 'utils/utils.js';
 import {setUserAction, setIsAuthAction} from 'redux/reducers/user/actions.js';
+import {RotatingLines} from 'react-loader-spinner';
 import './App.css';
 
 const HomePage = React.lazy(() => import('pages/HomePage'));
@@ -25,7 +26,15 @@ export default function App() {
 
     return (
         <>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense 
+                fallback={<RotatingLines
+                    strokeColor="grey"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="55"
+                    visible={true}
+                />}
+            >
                 <Routes>
                     <Route path='/' element={<HomePage />}/>
                     <Route path='/game/:id' element={<GameDetailsPage />}/>

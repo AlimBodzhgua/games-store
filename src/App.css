@@ -4,6 +4,7 @@
     --color-primary: #151515;
     --color-secondary: #202020;
     --color-primary-fonts: rgba(255, 255, 255, 0.6);
+    --color-orange: #fdca52;
 }
 
 body {
@@ -15,7 +16,6 @@ body {
     font-size: 14px;
     color: #fff;
 }
-
 
 *,
 *:before,

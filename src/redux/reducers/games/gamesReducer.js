@@ -1,22 +1,23 @@
-
 const initialState = {
-	games: []
+	page: 1,
+	genre: null,
+	games: [],
 }
 
-
-const ADD_GAME = 'ADD_GAME';
-const DELETE_GAME = 'DELETE_GAME';
-const CLEAR_GAMES = 'CLEAR_GAMES'
+export const SET_GAMES = 'SET_GAMES';
+export const SET_GENRE = 'SET_GENRE';
+export const SET_PAGE = 'SET_PAGE';
 
 export const gamesReducer = (state = initialState, action) => {
 	switch(action.type) {
-		case ADD_GAME:
-			return {...state};
-		case DELETE_GAME:
-			return {...state};
-		case CLEAR_GAMES:
-			return {...state}
+		case SET_GAMES:
+			return {...state, games: action.payload};
+		case SET_GENRE:
+			return {...state, genre: action.payload, page: 1};
+		case SET_PAGE:
+			return {...state, page: action.payload};
 		default:
 			return state; 
 	}
 }
+

@@ -1,31 +1,38 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useFetching} from 'hooks/useFetching';
-import GamesService from 'API/GamesService';
-import classes from './sidebar.module.css';
-import GenresList from './Genres/GenresList';
 import {NavLink} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 
-//import home from 'assets/icons/home.svg';
+import GamesService from 'API/GamesService';
+import GenresList from './Genres/GenresList';
+import classes from './sidebar.module.css';
+import {setGenreAction} from 'redux/reducers/games/actions.js';
+
 import {ReactComponent as Home} from 'assets/icons/home.svg';
 import {ReactComponent as Library} from 'assets/icons/library.svg';
 
-export default function Sidebar() {
+function Sidebar() {
 	const [genres, setGenres] = useState([]);
-	const [platforms, setPlatforms] = useState([]);
 	const [fetchGenres, genresLoading, genresError] = useFetching(async() => {
 		const response = await GamesService.getGenres();
 		setGenres(response.results);
 	})
 
+	const dispatch = useDispatch();
+
 	useEffect(() => {
 		fetchGenres();
 	}, [])
+
+	const handleClick = () => {
+		dispatch(setGenreAction(null));
+	}
 
 	return (
 		<aside className={classes.sidebar}>
 			<div className={classes.section_link}>
 				<Home className={classes.home__icon}/>
-				<h3><NavLink to="/" className={classes.sidebar__link}>Home</NavLink></h3>
+				<h3 onClick={handleClick}><NavLink to="/" className={classes.sidebar__link}>Home</NavLink></h3>
 			</div>
 			<div className={classes.section_link}>
 				<Library className={classes.library__icon}/>
@@ -40,3 +47,5 @@ export default function Sidebar() {
 		</aside>
 	)
 }
+
+export default Sidebar;

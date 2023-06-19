@@ -1,7 +1,18 @@
 import PropTypes from 'prop-types';
 import classes from './platforms-icon.module.css';
 
-const excludedIcon = ['dreamcast', 'wii', 'classic'];
+const excludedIcon = [
+	'dreamcast', 
+	'commodore',
+	'gamecube',
+	'genesis',
+	'sega',
+	'classic', 
+	'game',
+	'snes', 
+	'wii', 
+	'psp',
+];
 
 export default function PlatformsIconItem({icon}) {
 	return (

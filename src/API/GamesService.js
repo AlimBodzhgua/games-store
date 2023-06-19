@@ -3,8 +3,17 @@ import axios from 'axios';
 const key = '3cfb0003af6a422ab1e4230e1a8c4b39'
 
 export default class GamesService {
-	static async getGames(page) {
-		const response = await axios.get(`https://api.rawg.io/api/games?key=3cfb0003af6a422ab1e4230e1a8c4b39&page=1&page=${page}&page_size=25`);
+	static async getGames(page, genre) {
+		let params = {
+			key: '3cfb0003af6a422ab1e4230e1a8c4b39',
+			page_size: 25,
+			page: page,
+			genres: genre,
+		}
+		if (genre) {
+			params.genres = genre;
+		}
+		const response = await axios.get(`https://api.rawg.io/api/games`, {params});
 		return response.data;
 	}
 
@@ -24,8 +33,6 @@ export default class GamesService {
 	}
 
 	static async getPlatforms() {
-		//const response = await axios.get('https://api.rawg.io/api/platforms?key=3cfb0003af6a422ab1e4230e1a8c4b39');
-		//const response = await axios.get('https://api.rawg.io/api/developers?key=3cfb0003af6a422ab1e4230e1a8c4b39');
 		const response = await axios.get('https://api.rawg.io/api/creators?key=3cfb0003af6a422ab1e4230e1a8c4b39');
 		return response.data;
 	}

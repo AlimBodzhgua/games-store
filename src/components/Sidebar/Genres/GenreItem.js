@@ -1,11 +1,23 @@
 import PropTypes from 'prop-types';
-import {NavLink} from 'react-router-dom';
+//import {NavLink} from 'react-router-dom';
 import classes from './genres.module.css';
+import {useDispatch} from 'react-redux';
+import {setGenreAction} from 'redux/reducers/games/actions.js';
 
 export default function GenreItem({id, name}) {
+	const dispatch = useDispatch();
+	
+	const handleClick = (e, genre) => {
+		e.preventDefault();
+		dispatch(setGenreAction(genre.toLowerCase()));
+	}
+
 	return (
 		<li className={classes.item}>
-			<NavLink to='/' className={classes.item__link}>{name}</NavLink>
+			<button
+				onClick={(e) => handleClick(e, name)}
+				className={classes.item__link}
+			>{name}</button>
 		</li>
 	)
 }

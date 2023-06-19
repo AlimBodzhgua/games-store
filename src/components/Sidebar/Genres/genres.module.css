@@ -9,11 +9,16 @@
 
 .item__link {
 	color: inherit;
+	font-size: 16px;
 	text-decoration: none;
+	background: none;
+	border: none;
+	text-align: left;
 
 	transition: opacity .3s ease-out;
 }
 
 .item__link:hover {
 	opacity: .7;
+	cursor: pointer;
 }

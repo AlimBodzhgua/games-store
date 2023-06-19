@@ -1,23 +1,27 @@
 import classes from './pagination.module.css';
 import PropTypes from 'prop-types';
 import Pages from './Pages.js';
+import {useDispatch, useSelector} from 'react-redux';
+import {setPageAction} from 'redux/reducers/games/actions.js';
 
 const pages = [1, 2, 3, 4, 5, 6]
 
-export default function Pagination({currentPage, setPage}) {
+export default function Pagination() {
+	const {page} = useSelector(state => state.games);
+	const dispatch = useDispatch();
 
 	const handleClick = (page) => {
-		setPage(page);
+		dispatch(setPageAction(page));
 		window.scrollTo(0, 0);
 	}
 
 	const nextClick = () => {
-		setPage(prev => prev + 1);
+		dispatch(setPageAction(page + 1));
 		window.scrollTo(0, 0);
 	}
 
 	const prevClick = () => {
-		setPage(prev => prev - 1);
+		dispatch(setPageAction(page - 1));
 		window.scrollTo(0, 0);
 	}
 
@@ -26,23 +30,18 @@ export default function Pagination({currentPage, setPage}) {
 			<button 
 				onClick={prevClick} 
 				className={classes.btn} 
-				disabled={currentPage === 1}
+				disabled={page === 1}
 			>&lt;</button>
 			<Pages 
 				pages={pages}
-				currentPage={currentPage}
+				currentPage={page}
 				handleClick={handleClick}
 			/>
 			<button 
 				onClick={nextClick} 
 				className={classes.btn}
-				disabled={currentPage === pages.length}
+				disabled={page === pages.length}
 			>&gt;</button>
 		</ul>
 	)
-}
-
-Pagination.propTypes = {
-	currentPage: PropTypes.number.isRequired,
-	setPage: PropTypes.func.isRequired,
 }

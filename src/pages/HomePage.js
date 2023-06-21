@@ -5,7 +5,7 @@ import Sidebar from 'components/Sidebar/Sidebar.js';
 import Header from 'components/Header/Header.js';
 import Pagination from 'components/Pagination/Pagination.js';
 import {RotatingLines} from 'react-loader-spinner';
-
+import {capitalizeFirstLetter} from 'utils/utils.js';
 import GamesService from 'API/GamesService'
 import {useFetching} from 'hooks/useFetching';
 import {setGamesAction} from 'redux/reducers/games/actions.js';
@@ -37,6 +37,11 @@ export default function GamesPage() {
                             visible={true}
                         />
                     :   <>
+                            {genre && 
+                                <h2 className="page__title">
+                                    {capitalizeFirstLetter(genre)} Games
+                                </h2>
+                            }
                             <GamesList games={games} />
                             <Pagination />
                         </>

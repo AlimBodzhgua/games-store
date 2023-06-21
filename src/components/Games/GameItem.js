@@ -16,7 +16,6 @@ function GameItem({game}) {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		console.log(game);
 		if (game.platforms) {
 			const platforms = new Set();
 			game.platforms.forEach(obj => {

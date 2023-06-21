@@ -49,3 +49,8 @@ ol, ul {
     padding: 30px 30px;
     border: 1px solid #fff;
 }
+
+.page__title {
+    font-size: 34px;
+    margin: 0 20px;
+}

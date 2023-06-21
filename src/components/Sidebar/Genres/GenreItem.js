@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-//import {NavLink} from 'react-router-dom';
 import classes from './genres.module.css';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {setGenreAction} from 'redux/reducers/games/actions.js';
 
 export default function GenreItem({id, name}) {
+	const {genre} = useSelector(state => state.games);
 	const dispatch = useDispatch();
 	
 	const handleClick = (e, genre) => {
@@ -16,7 +16,9 @@ export default function GenreItem({id, name}) {
 		<li className={classes.item}>
 			<button
 				onClick={(e) => handleClick(e, name)}
-				className={classes.item__link}
+				className={name.toLowerCase() === genre 
+					? `${classes.item__link} ${classes.active}`
+					: classes.item__link}
 			>{name}</button>
 		</li>
 	)

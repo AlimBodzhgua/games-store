@@ -10,6 +10,7 @@ const excludedIcon = [
 	'classic', 
 	'game',
 	'snes', 
+	'3do',
 	'wii', 
 	'psp',
 ];

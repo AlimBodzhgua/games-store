@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {addGameAction, removeGameAction} from 'redux/reducers/user/actions';
 import PropTypes from 'prop-types';
 import PlatformsIconList from './PlatformsIcon/PlatformsIconList.js';
+import defaultImage from 'assets/default-image.jpg';
 
 import classes from './games.module.css';
 
@@ -47,7 +48,13 @@ function GameItem({game}) {
 
 	return (
 		<li onClick={handleClick} className={classes.item}>
-            <img src={game.background_image} className={classes.logo}/>
+        	<img src=
+        		{game.background_image 
+	        		? game.background_image
+	        		: defaultImage
+        		} 
+        		className={classes.logo}
+        	/>
             <div className={classes.info}>
             	{platformsIcon.length > 0 && 
             		<PlatformsIconList platformsIcon={platformsIcon}/>
@@ -70,7 +77,7 @@ GameItem.propTypes = {
 	game: PropTypes.shape({
 		id: PropTypes.number.isRequired,
 		name: PropTypes.string.isRequired,
-		background_image: PropTypes.string.isRequired,		
+		background_image: PropTypes.string,		
 	}).isRequired
 }
 

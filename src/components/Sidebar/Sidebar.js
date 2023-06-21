@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import {useFetching} from 'hooks/useFetching';
 import {NavLink} from 'react-router-dom';
 import {useDispatch} from 'react-redux';

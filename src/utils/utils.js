@@ -3,6 +3,13 @@ export const isUserLoggedIn = () => {
     return localStorage.hasOwnProperty('user');
 } 
 
+export const capitalizeFirstLetter = (word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1, word.length);
+}
+
+export const isImgElement = (el) => {
+    return el.tagName.toLowerCase() === 'img';
+}
 
 export const toggleInputFocus = (e, inputRef) => {
     if (e.key === 'Enter' && e.altKey === true) {
@@ -12,8 +19,4 @@ export const toggleInputFocus = (e, inputRef) => {
             inputRef.current.focus();
         }
     }
-}
-
-export const capitalizeFirstLetter = (word) => {
-    return word.charAt(0).toUpperCase() + word.slice(1, word.length);
 }

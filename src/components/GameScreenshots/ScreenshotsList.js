@@ -1,33 +1,38 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import PropTypes from 'prop-types';
 import classes from './screenshots.module.css';
 import Modal from 'components/Modal/Modal.js';
+import {isImgElement} from 'utils/utils.js';
 
 export default function ScreenshotsList({screenshots}) {
 	const [increasedScreenshot, setIncreasedScreenshot] = useState(false);
-	const increaseScreenshot = () => {
+	const imageRef = useRef();
+
+	const increaseScreenshot = (e) => {
+		if (isImgElement(e.target)) {
+			imageRef.current = e.target.getAttribute('src');
+		}
 		setIncreasedScreenshot(!increasedScreenshot);
 	}
 
 	return (
 		<>
 			{screenshots.map(screenshot =>
-				<div key={screenshot.id}>
-					<img 
-						onClick={increaseScreenshot}
-						src={screenshot.image}
-						className={classes.screenshot}
-					/>
-					{increasedScreenshot && 
-						<Modal handler={increaseScreenshot}>
-							<img 
-								src={screenshot.image}
-								className={classes.screenshot__opened}
-							/>
-						</Modal>
-					}
-				</div>
+				<img 
+					key={screenshot.id}
+					src={screenshot.image}
+					onClick={increaseScreenshot}
+					className={classes.screenshot}
+				/>
 			)}
+			{increasedScreenshot && 
+				<Modal handler={increaseScreenshot} >
+					<img 
+						src={imageRef.current} 
+						className={classes.screenshot__opened}
+					/>
+				</Modal>
+			}	
 		</>
 	)
 }

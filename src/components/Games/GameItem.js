@@ -62,7 +62,7 @@ function GameItem({game}) {
             		<PlatformsIconList platformsIcon={platformsIcon}/>
             	}
             	<h3 className={classes.title}>{game.name}</h3>
-            	<div className={classes.date}>Release: {game.released}</div>
+            	<div className={classes.date}>Released: {game.released}</div>
             	{game.metacritic &&
             		<div className={classes.metacritic}>{game.metacritic}</div>
             	}

@@ -1,8 +1,9 @@
-import {useEffect, useState, useRef} from 'react';
-import PropTypes from 'prop-types';
-import classes from './screenshots.module.css';
-import Modal from 'components/Modal/Modal.js';
+import {useState, useRef} from 'react';
 import {isImgElement} from 'utils/utils.js';
+import PropTypes from 'prop-types';
+import Modal from 'components/Modal/Modal.js';
+
+import classes from './screenshots.module.css';
 
 export default function ScreenshotsList({screenshots}) {
 	const [increasedScreenshot, setIncreasedScreenshot] = useState(false);

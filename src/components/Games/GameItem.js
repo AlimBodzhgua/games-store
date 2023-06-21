@@ -1,7 +1,8 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import {NavLink, useNavigate, useLocation} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {addGameAction, removeGameAction} from 'redux/reducers/user/actions';
+import {getFirstWord} from 'utils/utils.js';
 import PropTypes from 'prop-types';
 import PlatformsIconList from './PlatformsIcon/PlatformsIconList.js';
 import defaultImage from 'assets/default-image.jpg';
@@ -10,16 +11,27 @@ import classes from './games.module.css';
 
 function GameItem({game}) {
 	const [platformsIcon, setPlatformsIcon] = useState([]);
+	const {isAuth, data} = useSelector(state => state.user);
 
 	const navigate = useNavigate();
 	const location = useLocation();
 	const dispatch = useDispatch();
 
+	const isInLibrary = (checkGame) => {
+		let inLibrary = false
+		data.library.forEach(g => {
+			if (g.id === checkGame.id) { 
+				inLibrary = true
+			}
+		})
+		return inLibrary;
+	}
+	
 	useEffect(() => {
 		if (game.platforms) {
 			const platforms = new Set();
 			game.platforms.forEach(obj => {
-				const name = obj.platform.name.split(' ')[0].toLowerCase();
+				const name = getFirstWord(obj.platform.name);
 				platforms.add(name);
 			})
 			setPlatformsIcon([...platforms])
@@ -32,6 +44,9 @@ function GameItem({game}) {
 
 	const addGame = (e) => {
 		e.stopPropagation();
+		if (!isAuth) {
+			return alert('You should register or login in account');
+		}
 		const add = {
 			id: game.id, 
 			name: game.name,
@@ -68,8 +83,13 @@ function GameItem({game}) {
             	}
             </div>
             {location.pathname === '/' &&
-            	<button className={classes.add} onClick={addGame}>+</button>
-            	/*<button className={classes.add} onClick={addGame}>&#x2714;</button>*/
+            	<>
+            		{isInLibrary(game) 
+		            	? <button className={classes.add} disabled>&#x2714;</button>
+		            	: <button className={classes.add} onClick={addGame}>+</button>
+            		}
+            	</>
+            	
         	}
         	{location.pathname === '/library' &&
         		<button className={classes.add} onClick={removeGame}>-</button>

@@ -11,6 +11,12 @@ export const isImgElement = (el) => {
     return el.tagName.toLowerCase() === 'img';
 }
 
+export const getFirstWord = (str) => {
+    return str.split(' ')[0].toLowerCase();
+}
+
+
+
 export const toggleInputFocus = (e, inputRef) => {
     if (e.key === 'Enter' && e.altKey === true) {
         if (document.activeElement === inputRef.current) {

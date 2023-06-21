@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useMemo} from 'react';
 
 
 export const useFetching = (callback) => {
@@ -15,5 +15,6 @@ export const useFetching = (callback) => {
 			setIsLoading(false);
 		}
 	}
+
 	return [fetching, isLoading, error];
 }

@@ -1,3 +1,4 @@
+import React from 'react'
 import GenreItem from './GenreItem.js';
 import PropTypes from 'prop-types';
 

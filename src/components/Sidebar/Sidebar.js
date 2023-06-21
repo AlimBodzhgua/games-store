@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from 'react';
+import React, {useState, useEffect, useMemo, useCallback} from 'react';
 import {useFetching} from 'hooks/useFetching';
 import {NavLink} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
@@ -13,10 +13,12 @@ import {ReactComponent as Library} from 'assets/icons/library.svg';
 
 function Sidebar() {
 	const [genres, setGenres] = useState([]);
+	
 	const [fetchGenres, genresLoading, genresError] = useFetching(async() => {
 		const response = await GamesService.getGenres();
 		setGenres(response.results);
 	})
+
 
 	const dispatch = useDispatch();
 

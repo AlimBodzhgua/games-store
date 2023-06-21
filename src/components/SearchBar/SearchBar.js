@@ -31,6 +31,7 @@ export default function SearchBar() {
 	function search(search) {
 		GamesService.searchGame(search)
 			.then(response => dispatch(setGamesAction(response.results)))
+			.catch(error => console.log(error));
 	}
 
 	return (

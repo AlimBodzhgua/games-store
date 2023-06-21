@@ -16,12 +16,15 @@ function GameItem({game}) {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		const platforms = new Set();
-		game.platforms.forEach(obj => {
-			const name = obj.platform.name.split(' ')[0].toLowerCase();
-			platforms.add(name);
-		})
-		setPlatformsIcon([...platforms])
+		console.log(game);
+		if (game.platforms) {
+			const platforms = new Set();
+			game.platforms.forEach(obj => {
+				const name = obj.platform.name.split(' ')[0].toLowerCase();
+				platforms.add(name);
+			})
+			setPlatformsIcon([...platforms])
+		}
 	}, [])
 
 	const handleClick = () => {
@@ -60,7 +63,10 @@ function GameItem({game}) {
             		<PlatformsIconList platformsIcon={platformsIcon}/>
             	}
             	<h3 className={classes.title}>{game.name}</h3>
-            	<div className={classes.metacritic}>{game.metacritic}</div>
+            	<div className={classes.date}>Release: {game.released}</div>
+            	{game.metacritic &&
+            		<div className={classes.metacritic}>{game.metacritic}</div>
+            	}
             </div>
             {location.pathname === '/' &&
             	<button className={classes.add} onClick={addGame}>+</button>
@@ -77,7 +83,8 @@ GameItem.propTypes = {
 	game: PropTypes.shape({
 		id: PropTypes.number.isRequired,
 		name: PropTypes.string.isRequired,
-		background_image: PropTypes.string,		
+		released: PropTypes.string.isRequired,	
+		background_image: PropTypes.string,	
 	}).isRequired
 }
 

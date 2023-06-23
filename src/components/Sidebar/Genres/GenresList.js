@@ -1,8 +1,7 @@
-import React from 'react'
 import GenreItem from './GenreItem.js';
 import PropTypes from 'prop-types';
 
-export default function GenresList({genres}) {
+const GenresList = ({genres}) => {
 	return (
 		<ul>
 			{genres.map(genre => 
@@ -15,6 +14,8 @@ export default function GenresList({genres}) {
 		</ul>
 	)
 }
+
+export default GenresList;
 
 GenresList.propTypes = {
 	genres: PropTypes.arrayOf(PropTypes.shape({

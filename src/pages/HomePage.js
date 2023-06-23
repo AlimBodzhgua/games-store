@@ -26,7 +26,7 @@ export default function GamesPage() {
 	return (
 		<div className="page">
             <Sidebar/>
-            <div style={{display: 'flex', flexDirection: 'column', width: '85%'}}>
+            <div className="page__home">
                 <Header />
                 {isLoading 
                     ?   <RotatingLines

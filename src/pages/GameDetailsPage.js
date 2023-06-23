@@ -9,6 +9,7 @@ import {RotatingLines} from 'react-loader-spinner';
 
 export default function GameDetailsPage() {
 	const params = useParams();
+	
 	const [gameDetails, setGameDetails] = useState({});
 	const [fetchGameDetails, isLoading, error] = useFetching(async() => {
 		const response = await GamesService.getGameDetails(params.id);

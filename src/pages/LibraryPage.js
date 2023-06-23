@@ -19,9 +19,12 @@ export default function LibraryPage() {
 		<div className='page'>
 			<Sidebar />
 			<div className='page__details'>
-				<div>
-					<h2 style={{fontSize: '34px'}}>My library</h2>
-					<button onClick={handleClick}>clear library</button>
+				<div className='library__header'>
+					<h2 style={{fontSize: '38px'}}>My library</h2>
+					<button 
+						className='library__clear' 
+						onClick={handleClick}
+					>Clear Library</button>
 				</div>
 				{data?.library.length
 					?   <GamesList games={data.library}/>

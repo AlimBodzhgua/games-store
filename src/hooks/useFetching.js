@@ -1,5 +1,4 @@
-import {useState, useMemo} from 'react';
-
+import {useState, useEffect} from 'react';
 
 export const useFetching = (callback) => {
 	const [isLoading, setIsLoading] = useState(false);

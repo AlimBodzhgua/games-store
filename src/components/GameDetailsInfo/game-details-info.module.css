@@ -1,6 +1,7 @@
 .info {
     display: flex;
     justify-content: space-between;
+    text-align: left;
 }
 
 .picture {
@@ -37,6 +38,7 @@
 	margin: 15px 0;
 	padding: 10px 0px;
 
+    text-align: left;
 	color: #e6e6e6;
     font-size: 15px;
     line-height: 1.54;

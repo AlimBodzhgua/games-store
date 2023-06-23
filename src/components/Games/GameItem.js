@@ -1,5 +1,5 @@
-import {useState, useEffect, useCallback} from 'react';
-import {NavLink, useNavigate, useLocation} from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {useNavigate, useLocation} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {addGameAction, removeGameAction} from 'redux/reducers/user/actions';
 import {getFirstWord} from 'utils/utils.js';
@@ -11,11 +11,12 @@ import classes from './games.module.css';
 
 function GameItem({game}) {
 	const [platformsIcon, setPlatformsIcon] = useState([]);
+	
 	const {isAuth, data} = useSelector(state => state.user);
+	const dispatch = useDispatch();
 
 	const navigate = useNavigate();
 	const location = useLocation();
-	const dispatch = useDispatch();
 
 	const isInLibrary = (checkGame) => {
 		let inLibrary = false

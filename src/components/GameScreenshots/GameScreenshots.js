@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
-import GamesService from 'API/GamesService';
 import {useFetching} from 'hooks/useFetching.js';
-import PropTypes from 'prop-types';
-import Modal from 'components/Modal/Modal.js';
 import ScreenshotsList from './ScreenshotsList.js';
+import Modal from 'components/Modal/Modal.js';
+import GamesService from 'API/GamesService';
+import PropTypes from 'prop-types';
 
 import classes from './screenshots.module.css';
 
@@ -22,7 +22,7 @@ export default function GameScreenshots({id}) {
 	}
 
 	return (
-		<div>
+		<div className={classes.screenshots__section}>
 			<button onClick={handleClick} className={classes.button}>
 				{showScreenshots ? '- ' : '+ '} Show screenshots
 			</button>

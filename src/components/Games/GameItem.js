@@ -6,6 +6,7 @@ import {getFirstWord} from 'utils/utils.js';
 import PropTypes from 'prop-types';
 import PlatformsIconList from './PlatformsIcon/PlatformsIconList.js';
 import defaultImage from 'assets/default-image.jpg';
+import UserService from 'API/UserService';
 
 import classes from './games.module.css';
 
@@ -19,13 +20,15 @@ function GameItem({game}) {
 	const location = useLocation();
 
 	const isInLibrary = (checkGame) => {
-		let inLibrary = false
-		data.library.forEach(g => {
-			if (g.id === checkGame.id) { 
-				inLibrary = true
-			}
-		})
-		return inLibrary;
+		if (isAuth) {
+			let inLibrary = false
+			data.library.forEach(g => {
+				if (g.id === checkGame.id) { 
+					inLibrary = true
+				}
+			})
+			return inLibrary;
+		}
 	}
 	
 	useEffect(() => {

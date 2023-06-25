@@ -1,9 +1,10 @@
 import React, {useEffect, Suspense} from 'react';
 import {Routes, Route, NavLink} from 'react-router-dom';
-import {useDispatch} from 'react-redux'; 
+import {useDispatch, useSelector} from 'react-redux'; 
 import {isUserLoggedIn} from 'utils/utils.js';
 import {setUserAction, setIsAuthAction} from 'redux/reducers/user/actions.js';
 import {RotatingLines} from 'react-loader-spinner';
+import UserService from 'API/UserService';
 import './App.css';
 
 const HomePage = React.lazy(() => import('pages/HomePage'));
@@ -14,6 +15,7 @@ const LoginPage = React.lazy(() => import('pages/LoginPage'));
 
 
 export default function App() {
+    const {isAuth, data} = useSelector(state => state.user);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,6 +25,13 @@ export default function App() {
             dispatch(setIsAuthAction(true));
         }
     }, [])
+
+    useEffect(() => {
+        if (isAuth) {
+            UserService.updateLibrary(data.id, data.library);
+            localStorage.setItem('user', JSON.stringify(data));
+        }
+    }, [data])
 
     return (
         <>

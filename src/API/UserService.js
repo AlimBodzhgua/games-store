@@ -17,4 +17,9 @@ export default class UserService {
 		const response = await axios.post(`http://localhost:8080/login`, data);
 		return response
 	}
+
+	static async updateLibrary(id, library) {
+		const body = {"library": library}
+		axios.patch(`http://localhost:8080/users/${id}`, body);
+	}
 }

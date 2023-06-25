@@ -7,6 +7,7 @@ import Pagination from 'components/Pagination/Pagination.js';
 import {RotatingLines} from 'react-loader-spinner';
 import {capitalizeFirstLetter} from 'utils/utils.js';
 import GamesService from 'API/GamesService'
+import UserService from 'API/UserService';
 import {useFetching} from 'hooks/useFetching';
 import {setGamesAction} from 'redux/reducers/games/actions.js';
 
@@ -22,6 +23,7 @@ export default function GamesPage() {
     useEffect(() => {
         fetchGames();
     }, [page, genre])
+
 
 	return (
 		<div className="page">

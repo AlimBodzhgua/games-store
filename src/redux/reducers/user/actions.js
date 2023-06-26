@@ -9,34 +9,12 @@ import {
 } from './userReducer.js';
 import UserService from 'API/UserService.js';
 
-export const setIsLoadingAction = (loading) => ({
-	type:SET_LOADING, 
-	payload: loading,
-});
-
-export const setIsAuthAction = (auth) => ({
-	type: SET_AUTH,
-	payload: auth,
-});
-
-export const setErrorAction = (payload) => ({
-	type: SET_ERROR,
-	payload,
-});
-
-export const setUserAction = (user) => ({
-	type: SET_USER,
-	payload: user,
-});
-
-export const addGameAction = (game) => ({
-	type: ADD_GAME,
-	payload: game,
-})
-
-export const removeGameAction = (id) => ({
-	type: REMOVE_GAME,
-	payload: id,
-})
-
-export const clearLibraryAction = () => ({type: CLEAR_LIBRARY});
+export const UserActions = {
+	setIsLoadingAction: (loading) => ({type:SET_LOADING, payload: loading}),
+	setIsAuthAction: (auth) => ({type: SET_AUTH, payload: auth}),
+	setErrorAction: (payload) => ({type: SET_ERROR, payload}),
+	setUserAction: (user) => ({type: SET_USER, payload: user}),
+	addGameAction: (game) => ({type: ADD_GAME, payload: game}),
+	removeGameAction: (id) => ({type: REMOVE_GAME, payload: id}),
+	clearLibraryAction: () => ({type: CLEAR_LIBRARY}),
+}

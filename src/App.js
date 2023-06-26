@@ -1,8 +1,8 @@
 import React, {useEffect, Suspense} from 'react';
 import {Routes, Route, NavLink} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux'; 
+import {useSelector} from 'react-redux'; 
 import {isUserLoggedIn} from 'utils/utils.js';
-import {setUserAction, setIsAuthAction} from 'redux/reducers/user/actions.js';
+import {useAction} from 'hooks/useAction';
 import {RotatingLines} from 'react-loader-spinner';
 import UserService from 'API/UserService';
 import './App.css';
@@ -16,13 +16,13 @@ const LoginPage = React.lazy(() => import('pages/LoginPage'));
 
 export default function App() {
     const {isAuth, data} = useSelector(state => state.user);
-    const dispatch = useDispatch();
+    const {setUserAction, setIsAuthAction} = useAction();
 
     useEffect(() => {
         if (isUserLoggedIn()) {
             const user = localStorage.getItem('user');
-            dispatch(setUserAction(JSON.parse(user)));
-            dispatch(setIsAuthAction(true));
+            setUserAction(JSON.parse(user));
+            setIsAuthAction(true);
         }
     }, [])
 

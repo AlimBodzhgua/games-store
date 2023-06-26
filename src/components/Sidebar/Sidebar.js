@@ -1,9 +1,8 @@
 import {useState, useEffect} from 'react';
+import {useAction} from 'hooks/useAction';
 import {useFetching, useFetch} from 'hooks/useFetching';
 import {NavLink} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
 import {RotatingLines} from 'react-loader-spinner';
-import {setGenreAction} from 'redux/reducers/games/actions.js';
 import GamesService from 'API/GamesService';
 import GenresList from './Genres/GenresList';
 
@@ -18,15 +17,14 @@ function Sidebar() {
 		const response = await GamesService.getGenres();
 		setGenres(response.results);
 	})
-	const dispatch = useDispatch();
+	const {setGenreAction} = useAction();
 
 	useEffect(() => {
 		fetchGenres();
 	}, [])
 
-
 	const handleClick = () => {
-		dispatch(setGenreAction(null));
+		setGenreAction(null);
 	}
 
 	return (

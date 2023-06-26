@@ -1,27 +1,27 @@
-import classes from './pagination.module.css';
+import {useAction} from 'hooks/useAction';
+import {useSelector} from 'react-redux';
+import Pages from './Pages';
 import PropTypes from 'prop-types';
-import Pages from './Pages.js';
-import {useDispatch, useSelector} from 'react-redux';
-import {setPageAction} from 'redux/reducers/games/actions.js';
+import classes from './pagination.module.css';
 
 const pages = [1, 2, 3, 4, 5, 6]
 
 export default function Pagination() {
 	const {page} = useSelector(state => state.games);
-	const dispatch = useDispatch();
+	const {setPageAction} = useAction();
 
 	const handleClick = (page) => {
-		dispatch(setPageAction(page));
+		setPageAction(page);
 		window.scrollTo(0, 0);
 	}
 
 	const nextClick = () => {
-		dispatch(setPageAction(page + 1));
+		setPageAction(page + 1);
 		window.scrollTo(0, 0);
 	}
 
 	const prevClick = () => {
-		dispatch(setPageAction(page - 1));
+		setPageAction(page - 1);
 		window.scrollTo(0, 0);
 	}
 

@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react';
+import {useState, useRef, memo} from 'react';
 import {isImgElement} from 'utils/utils.js';
 import PropTypes from 'prop-types';
 import Modal from 'components/Modal/Modal.js';

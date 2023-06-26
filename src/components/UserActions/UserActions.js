@@ -1,21 +1,22 @@
 import {useEffect} from 'react';
+import {useAction} from 'hooks/useAction';
 import {NavLink} from 'react-router-dom';
-import classes from './user-actions.module.css';
-import {useSelector, useDispatch} from 'react-redux';
-import {setIsAuthAction, setUserAction} from 'redux/reducers/user/actions';
+import {useSelector} from 'react-redux';
+
 import {ReactComponent as Signout} from 'assets/icons/signout_icon.svg';
+import classes from './user-actions.module.css';
 
 export default function UserActions() {
 	const user = useSelector(state => state.user);
-	const dispatch = useDispatch();
+	const {setIsAuthAction, setUserAction} = useAction();
 
 	const handleClick = (e) => {
 		e.preventDefault();
 		const confirm = window.confirm('Are you sure you want to logout?');
 		if (confirm) {
 			localStorage.removeItem('user');
-			dispatch(setIsAuthAction(false));
-			dispatch(setUserAction(null));
+			setIsAuthAction(false);
+			setUserAction(null);
 		}
 	}
 

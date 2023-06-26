@@ -1,15 +1,14 @@
 import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {useFetching} from '../hooks/useFetching';
-import Sidebar from 'components/Sidebar/Sidebar.js';
+import Sidebar from 'components/Sidebar/Sidebar';
 import GamesService from '../API/GamesService';
-import GameDetailsInfo from 'components/GameDetailsInfo/GameDetailsInfo.js';
-import GameScreenshots from 'components/GameScreenshots/GameScreenshots.js';
+import GameDetailsInfo from 'components/GameDetailsInfo/GameDetailsInfo';
+import GameScreenshots from 'components/GameScreenshots/GameScreenshots';
 import {RotatingLines} from 'react-loader-spinner';
 
 export default function GameDetailsPage() {
 	const params = useParams();
-	
 	const [gameDetails, setGameDetails] = useState({});
 	const [fetchGameDetails, isLoading, error] = useFetching(async() => {
 		const response = await GamesService.getGameDetails(params.id);

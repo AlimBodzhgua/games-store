@@ -1,39 +1,39 @@
 import classes from './auth-forms.module.css';
 import {NavLink, useNavigate} from 'react-router-dom';
+import {useAction} from 'hooks/useAction.js';
 import {useForm} from 'react-hook-form';
 import UserService from 'API/UserService.js';
-import {useDispatch} from 'react-redux';
-import {
-	setUserAction, 
-	setErrorAction, 
-	setIsLoadingAction, 
-	setIsAuthAction
-} from 'redux/reducers/user/actions.js';
 
 export default function LoginForm() {
+	const {
+		setUserAction, 
+		setErrorAction, 
+		setIsLoadingAction, 
+		setIsAuthAction
+	} = useAction();
+
 	const {
 		register, 
 		handleSubmit, 
 		formState: { errors }
 	} = useForm();
-	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
+	const navigate = useNavigate();
 
 	const onSubmit = (user) => {
 		const loginUser = async(user) => {
 			try {
-				dispatch(setIsLoadingAction(true));
+				setIsLoadingAction(true);
 
 				let { data } = await UserService.login(user);
 				data = {token: data.accessToken, ...data.user};
 				localStorage.setItem('user', JSON.stringify(data));
 
-				dispatch(setUserAction(data));
-				dispatch(setIsAuthAction(true));
+				setUserAction(data);
+				setIsAuthAction(true);
 				navigate('/');
 			} catch (error){
-				dispatch(setErrorAction(error))
+				setErrorAction(error);
 			}
 		}
 		loginUser(user);

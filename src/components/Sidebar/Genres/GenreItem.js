@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import {useAction} from 'hooks/useAction';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
-import {setGenreAction} from 'redux/reducers/games/actions.js';
 
 import classes from './genres.module.css';
 
 export default function GenreItem({id, name}) {
 	const {genre} = useSelector(state => state.games);
+	const {setGenreAction} = useAction();
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	

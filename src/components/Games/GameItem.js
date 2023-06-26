@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
+import {useAction} from 'hooks/useAction.js';
 import {useNavigate, useLocation} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
-import {addGameAction, removeGameAction} from 'redux/reducers/user/actions';
+import {useSelector} from 'react-redux';
 import {getFirstWord} from 'utils/utils.js';
 import PropTypes from 'prop-types';
 import PlatformsIconList from './PlatformsIcon/PlatformsIconList.js';
@@ -12,9 +12,9 @@ import classes from './games.module.css';
 
 function GameItem({game}) {
 	const [platformsIcon, setPlatformsIcon] = useState([]);
+	const {addGameAction, removeGameAction} = useAction();
 	
 	const {isAuth, data} = useSelector(state => state.user);
-	const dispatch = useDispatch();
 
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -59,12 +59,12 @@ function GameItem({game}) {
 			background_image: game.background_image,
 			platforms: game.platforms,
 		}
-		dispatch(addGameAction(add));
+		addGameAction(add);
 	}
 
 	const removeGame = (e) => {
 		e.stopPropagation();
-		dispatch(removeGameAction(game.id));
+		removeGameAction(game.id);
 	}
 
 	return (

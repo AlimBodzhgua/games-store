@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 import {useFetching} from 'hooks/useFetching.js';
 import ScreenshotsList from './ScreenshotsList.js';
-import Modal from 'components/Modal/Modal.js';
 import GamesService from 'API/GamesService';
 import PropTypes from 'prop-types';
 

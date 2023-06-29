@@ -1,7 +1,7 @@
 import {useState, useRef, memo} from 'react';
 import {isImgElement} from 'utils/utils.js';
 import PropTypes from 'prop-types';
-import Modal from 'components/Modal/Modal.js';
+import Modal from 'components/UI/Modal/Modal.js';
 
 import classes from './screenshots.module.css';
 

@@ -1,5 +1,5 @@
 import GamePlatformsList from 'components/GamePlatformsList/GamePlatformsList.js';
-import MyList from 'components/MyList/MyList.js';
+import MyList from 'components/UI/MyList/MyList.js';
 import PropTypes from 'prop-types';
 
 import classes from './game-details-info.module.css';

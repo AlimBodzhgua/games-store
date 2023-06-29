@@ -2,6 +2,8 @@ import classes from './auth-forms.module.css';
 import {useAction} from 'hooks/useAction.js';
 import {NavLink, useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
+import InputPassword from 'components/UI/Input/InputPassword.js';
+import Input from 'components/UI/Input/Input.js';
 import UserService from 'API/UserService.js';
 
 export default function RegisterForm() {
@@ -45,7 +47,7 @@ export default function RegisterForm() {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-			<input 
+			<Input 
 				{...register('login', {
 					required: {
 						value: true,
@@ -62,7 +64,7 @@ export default function RegisterForm() {
 			/>
 			{errors.login && <p className={classes.error_message}>{errors.login.message}</p>}
 
-			<input 
+			<Input 
 				{...register('email', {
 					required: {
 						value: true,
@@ -75,7 +77,7 @@ export default function RegisterForm() {
 			/>
 			{errors.email && <p className={classes.error_message}>{errors.email.message}</p>}
 
-			<input 
+			<InputPassword 
 				{...register('password', {
 					required: {
 						value: true,
@@ -86,9 +88,7 @@ export default function RegisterForm() {
 						message: 'Password must be at least 6 characters long'
 					}
 				})}
-				type="password" 
 				className={classes.input}
-				placeholder="Password"
 			/>
 			{errors.password && <p className={classes.error_message}>{errors.password.message}</p>}
 

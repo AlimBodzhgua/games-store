@@ -2,6 +2,8 @@ import classes from './auth-forms.module.css';
 import {NavLink, useNavigate} from 'react-router-dom';
 import {useAction} from 'hooks/useAction.js';
 import {useForm} from 'react-hook-form';
+import InputPassword from 'components/UI/Input/InputPassword.js';
+import Input from 'components/UI/Input/Input.js';
 import UserService from 'API/UserService.js';
 
 export default function LoginForm() {
@@ -42,28 +44,26 @@ export default function LoginForm() {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-			<input 
+			<Input 
 				{...register('email', {
 					required: {
 						value: true,
 						message: 'email is required filed'
 					}
 				})}
-				className={classes.input} 
+				className={classes.input__dark} 
 				placeholder="Email"
 				type="email" 
 			/>
 			{errors.email && <p className={classes.error_message}>{errors.email.message}</p>}
-			<input 
+			<InputPassword 
 				{...register('password', {
 					required: {
 						value: true,
 						message: 'password is required field'
 					}
 				})}
-				className={classes.input} 
-				placeholder="Password"
-				type="password" 
+				className={classes.input__dark} 
 			/>
 			{errors.password && <p className={classes.error_message}>{errors.password.message}</p>}
 

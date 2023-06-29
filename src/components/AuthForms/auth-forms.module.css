@@ -3,10 +3,13 @@
 .form {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
 }
 
 
-.input {
+.input__dark {
 	width: 300px;
 	height: 60px;
 
@@ -25,10 +28,12 @@
 	transition: border .2s linear;
 }
 
-.input:focus {
+.input__dark:focus {
 	outline: none;
 	border-bottom: 2px solid #21a4f7;
 }
+
+
 
 .btn {
 	width: 300px;

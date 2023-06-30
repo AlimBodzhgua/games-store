@@ -11,7 +11,8 @@ export default function RegisterForm() {
 		setUserAction, 
 		setErrorAction, 
 		setIsLoadingAction, 
-		setIsAuthAction
+		setIsAuthAction,
+		registerUser
 	} = useAction();
 
 	const {
@@ -25,24 +26,8 @@ export default function RegisterForm() {
 
 	const onSubmit = (data) => {
 		const newUser = {...data, library: []}
-
-		async function register(user) {
-			try {
-				setIsLoadingAction(true);
-
-				let {data} = await UserService.registerUser(newUser);
-				data = {token: data.accessToken, ...data.user};
-				localStorage.setItem('user', JSON.stringify(data));
-				
-				setUserAction(data);
-				setIsAuthAction(true);
-				navigate('/');
-			} catch(error) {
-				setErrorAction(error);
-			}
-		}
-		register(newUser);
-		
+		registerUser(newUser);
+		navigate('/');
 	}
 
 	return (

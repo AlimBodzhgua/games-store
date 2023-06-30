@@ -1,8 +1,8 @@
 import {useEffect} from 'react';
 import {useSelector} from 'react-redux'; 
 import {isUserLoggedIn} from 'utils/utils.js';
-import AppRouter from 'router/AppRouter.js';
 import {useAction} from 'hooks/useAction';
+import AppRouter from 'router/AppRouter.js';
 import UserService from 'API/UserService';
 import './App.css';
 

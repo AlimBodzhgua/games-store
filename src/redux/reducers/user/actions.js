@@ -17,4 +17,41 @@ export const UserActions = {
 	addGameAction: (game) => ({type: ADD_GAME, payload: game}),
 	removeGameAction: (id) => ({type: REMOVE_GAME, payload: id}),
 	clearLibraryAction: () => ({type: CLEAR_LIBRARY}),
+
+
+	registerUser: (newUser) => async(dispatch) => {
+		try {
+			dispatch(UserActions.setIsLoadingAction(true));
+
+			let {data} = await UserService.registerUser(newUser);
+			data = {token: data.accessToken, ...data.user};
+			localStorage.setItem('user', JSON.stringify(data));
+			
+			dispatch(UserActions.setUserAction(data));
+			dispatch(UserActions.setIsAuthAction(true));
+		} catch(error) {
+			dispatch(UserActions.setErrorAction(error));
+		}
+	},
+
+	login: (user) => async(dispatch) => {
+		try {
+			dispatch(UserActions.setIsLoadingAction(true));
+
+			let { data } = await UserService.login(user);
+			data = {token: data.accessToken, ...data.user};
+			localStorage.setItem('user', JSON.stringify(data));
+
+			dispatch(UserActions.setUserAction(data));
+			dispatch(UserActions.setIsAuthAction(true));
+		} catch (error){
+			dispatch(UserActions.setErrorAction('Error login user'));
+		}
+	},
+
+	logout: () => (dispatch) => {
+		localStorage.removeItem('user');
+		dispatch(UserActions.setIsAuthAction(false));
+		dispatch(UserActions.setUserAction(null));
+	}
 }

@@ -11,7 +11,8 @@ export default function LoginForm() {
 		setUserAction, 
 		setErrorAction, 
 		setIsLoadingAction, 
-		setIsAuthAction
+		setIsAuthAction,
+		login,
 	} = useAction();
 
 	const {
@@ -23,22 +24,8 @@ export default function LoginForm() {
 	const navigate = useNavigate();
 
 	const onSubmit = (user) => {
-		const loginUser = async(user) => {
-			try {
-				setIsLoadingAction(true);
-
-				let { data } = await UserService.login(user);
-				data = {token: data.accessToken, ...data.user};
-				localStorage.setItem('user', JSON.stringify(data));
-
-				setUserAction(data);
-				setIsAuthAction(true);
-				navigate('/');
-			} catch (error){
-				setErrorAction(error);
-			}
-		}
-		loginUser(user);
+		login(user);
+		navigate('/');
 	}
 
 

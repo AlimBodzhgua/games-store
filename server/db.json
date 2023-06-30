@@ -138,6 +138,13 @@
         }
       ],
       "id": 3
+    },
+    {
+      "email": "alimb2@mail.ru",
+      "password": "$2a$10$pj10wEUTkbl1JJ5zXsHr2uPVDzkpmN1HKIJ90T.EqI8NFY4hCh.eO",
+      "login": "AlimBo2",
+      "library": [],
+      "id": 4
     }
   ]
 }

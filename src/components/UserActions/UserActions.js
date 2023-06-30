@@ -8,16 +8,13 @@ import classes from './user-actions.module.css';
 
 export default function UserActions() {
 	const user = useSelector(state => state.user);
-	const {setIsAuthAction, setUserAction} = useAction();
+	const {setIsAuthAction, setUserAction, logout} = useAction();
 
 	const handleClick = (e) => {
 		e.preventDefault();
 		const confirm = window.confirm('Are you sure you want to logout?');
-		if (confirm) {
-			localStorage.removeItem('user');
-			setIsAuthAction(false);
-			setUserAction(null);
-		}
+		if (confirm) logout();
+		
 	}
 
 	return (

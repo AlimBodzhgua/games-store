@@ -59,7 +59,7 @@ export default function RegisterForm() {
 					},
 				})}
 				type="text" 
-				className={classes.input}
+				className={classes.input__dark}
 				placeholder="Name"
 			/>
 			{errors.login && <p className={classes.error_message}>{errors.login.message}</p>}
@@ -72,7 +72,7 @@ export default function RegisterForm() {
 					}
 				})}
 				type="email" 
-				className={classes.input}
+				className={classes.input__dark}
 				placeholder="Email"
 			/>
 			{errors.email && <p className={classes.error_message}>{errors.email.message}</p>}
@@ -88,7 +88,7 @@ export default function RegisterForm() {
 						message: 'Password must be at least 6 characters long'
 					}
 				})}
-				className={classes.input}
+				className={classes.input__dark}
 			/>
 			{errors.password && <p className={classes.error_message}>{errors.password.message}</p>}
 

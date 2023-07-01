@@ -5,6 +5,8 @@
     --color-secondary: #202020;
     --color-primary-fonts: rgba(255, 255, 255, 0.6);
     --color-orange: #fdca52;
+    --color-blue: #21a4f7;
+    --color-white: #ffff;
 }
 
 body {
@@ -36,13 +38,28 @@ ol, ul {
     width: 100%;
 
     padding: 20px 30px;
+}
+
+.page--flex {
     display: flex;
 }
 
 .page--centered {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
+}
+
+.page__header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.page__header--sm {
+    width: 35%;
 }
 
 .page__home {
@@ -64,13 +81,8 @@ ol, ul {
     text-align: left;
 }
 
-.library__header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
 
-.library__clear {
+.btn {
     padding: 10px 14px;
     font-weight: 600;
     color: #fff;

@@ -1,5 +1,8 @@
 import {useState, useEffect} from 'react';
 import {useAction} from 'hooks/useAction';
+import ItemActions from './ItemActions';
+import Input from 'components/UI/Input/Input.js';
+import ImageUpload from './ImageUpload.js';
 import PropTypes from 'prop-types';
 
 import classes from './profile.module.css';
@@ -9,13 +12,11 @@ export default function ProfileInfo({data}) {
 	const [loginChange, setLoginChange] = useState({value: '', isChanging: false});
 	const {changeLoginAction, changeEmailAction} = useAction();
 
-	const handleEmailChange = (e) => {
-		e.preventDefault();
+	const handleEmailChange = () => {
 		setEmailChange({value: data.email, isChanging: true});
 	}
 
-	const handleLoginChange = (e) => {
-		e.preventDefault();
+	const handleLoginChange = () => {
 		setLoginChange({value: data.login, isChanging: true});
 	}
 
@@ -39,27 +40,23 @@ export default function ProfileInfo({data}) {
 
 	return (
 		<div className={classes.profile}>
+			<ImageUpload />
+		
 			<div className={classes.info}>
 				<h3 className={classes.info__title}>Login</h3>
 				<div className={classes.info__item}>
 					{loginChange.isChanging 
 						? <>
-							<input 
+							<Input
 								className={classes.input} 
 								type="text" 
 								value={loginChange.value} 
 								onChange={(e) => setLoginChange({...loginChange, value: e.target.value})}
 						  	/>
-						  	<div className={classes.actions}>
-							  	<button 
-							  		onClick={() => changeLogin(loginChange.value)}
-							  		className={classes.btn__complete}
-							  	>&#x2714;</button>
-							  	<button 
-							  		onClick={handleCancelLoginChange} 
-							  		className={classes.btn__cancel}
-							  	>&#10005;</button>
-						  	</div>
+						  	<ItemActions 
+						  		completeHandler={() => changeLogin(loginChange.value)}
+						  		cancelHandler={handleCancelLoginChange}
+						  	/>
 						  </>
 						: <>
 							<div>{data.login}</div>
@@ -77,22 +74,16 @@ export default function ProfileInfo({data}) {
 				<div className={classes.info__item}>
 					{emailChange.isChanging 
 						? <>
-							<input 
+							<Input 
 								className={classes.input} 
 								type="text" 
 								value={emailChange.value} 
 								onChange={(e) => setEmailChange({...emailChange, value: e.target.value})}
 						  	/>
-						  	<div className={classes.actions}>
-							  	<button 
-							  		onClick={() => changeEmail(emailChange.value)}
-							  		className={classes.btn__complete}
-							  	>&#x2714;</button>
-							  	<button 
-							  		onClick={handleCancelEmailChange} 
-							  		className={classes.btn__cancel}
-							  	>&#10005;</button>
-						  	</div>
+						  	<ItemActions 
+						  		completeHandler={() => changeEmail(loginChange.value)}
+						  		cancelHandler={handleCancelLoginChange}
+						  	/>
 						  </>
 						: <>
 							<div>{data.email}</div>
@@ -104,10 +95,6 @@ export default function ProfileInfo({data}) {
 					}
 				</div>
 			</div>
-			<input 
-				type="file" 
-				onChange={(e) => console.log(e)}
-			/>
 		</div>
 	)
 }

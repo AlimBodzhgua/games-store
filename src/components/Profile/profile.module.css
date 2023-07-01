@@ -57,6 +57,7 @@
 
 .input:focus {
 	outline: none;
+	font-weight: inherit;
 }
 
 .btn {
@@ -78,7 +79,7 @@
 	display: flex;
 	justify-content: space-between;
 	width: 20%;
-	height: 70%;
+	height: 60%;
 }
 
 .btn__complete,
@@ -99,5 +100,10 @@
 
 .btn__cancel {
 	background-color: var(--color-blue);
+	color: var(--color-white);
 }
 
+
+.hide {
+	display: none;
+}

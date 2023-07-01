@@ -20,13 +20,13 @@ export default function LibraryPage() {
 	}
 
 	return (
-		<div className='page'>
+		<div className='page page--flex'>
 			<Sidebar />
 			<div className='page__details'>
-				<div className='library__header'>
+				<div className='page__header'>
 					<h2 style={{fontSize: '38px'}}>My library</h2>
 					<button 
-						className='library__clear' 
+						className='btn' 
 						onClick={handleClick}
 					>Clear Library</button>
 				</div>

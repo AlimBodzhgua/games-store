@@ -25,9 +25,8 @@ export default function GamesPage() {
         fetchGames();
     }, [page, genre])
 
-
 	return (
-		<div className="page">
+		<div className="page page--flex">
             <Sidebar/>
             <div className="page__home">
                 <Header />

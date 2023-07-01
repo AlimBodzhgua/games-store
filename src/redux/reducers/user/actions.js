@@ -4,6 +4,8 @@ import {
 	SET_ERROR, 
 	SET_USER,
 	ADD_GAME,
+	CHANGE_LOGIN,
+	CHANGE_EMAIL,
 	REMOVE_GAME,
 	CLEAR_LIBRARY
 } from './userReducer.js';
@@ -14,6 +16,8 @@ export const UserActions = {
 	setIsAuthAction: (auth) => ({type: SET_AUTH, payload: auth}),
 	setErrorAction: (payload) => ({type: SET_ERROR, payload}),
 	setUserAction: (user) => ({type: SET_USER, payload: user}),
+	changeLoginAction: (name) => ({type: CHANGE_LOGIN, payload: name}),
+	changeEmailAction: (email) => ({type: CHANGE_EMAIL, payload: email}),
 	addGameAction: (game) => ({type: ADD_GAME, payload: game}),
 	removeGameAction: (id) => ({type: REMOVE_GAME, payload: id}),
 	clearLibraryAction: () => ({type: CLEAR_LIBRARY}),

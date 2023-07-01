@@ -24,7 +24,7 @@ export default function GameDetailsPage() {
 	}, [gameDetails])
 
 	return (
-		<div className="page">
+		<div className="page page--flex">
 			<Sidebar />
 			<div className="page__details">
 				{isLoading 

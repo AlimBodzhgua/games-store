@@ -21,6 +21,7 @@ export default function AppRouter() {
                 <Routes>
                 	{routes.map(route => 
                 		<Route 
+                            key={route.path}
                 			path={route.path}
                 			element={route.component}
                 		/>
@@ -29,6 +30,7 @@ export default function AppRouter() {
                 	{!isAuth &&
                 		authRoutes.map(route =>
                 			<Route 
+                                key={route.path}
                 				path={route.path}
                 				element={route.component}
                 			/>

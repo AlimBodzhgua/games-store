@@ -6,6 +6,7 @@ import {
 	ADD_GAME,
 	CHANGE_LOGIN,
 	CHANGE_EMAIL,
+	CHANGE_IMAGE,
 	REMOVE_GAME,
 	CLEAR_LIBRARY
 } from './userReducer.js';
@@ -18,6 +19,7 @@ export const UserActions = {
 	setUserAction: (user) => ({type: SET_USER, payload: user}),
 	changeLoginAction: (name) => ({type: CHANGE_LOGIN, payload: name}),
 	changeEmailAction: (email) => ({type: CHANGE_EMAIL, payload: email}),
+	changeImageAction: (img) => ({type: CHANGE_IMAGE, payload: img}),
 	addGameAction: (game) => ({type: ADD_GAME, payload: game}),
 	removeGameAction: (id) => ({type: REMOVE_GAME, payload: id}),
 	clearLibraryAction: () => ({type: CLEAR_LIBRARY}),

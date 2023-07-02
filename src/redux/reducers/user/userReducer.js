@@ -4,6 +4,7 @@ export const SET_LOADING = 'SET_LOADING';
 export const SET_AUTH = 'SET_AUTH';
 export const CHANGE_LOGIN = 'CHANGE_LOGIN';
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
+export const CHANGE_IMAGE = 'CHANGE_IMAGE';
 
 export const ADD_GAME = 'ADD_GAME';
 export const REMOVE_GAME = 'REMOVE_GAME';
@@ -30,6 +31,8 @@ export const userReducer = (state = initialState, action) => {
 			return {...state, data: {...state.data, login: action.payload}};
 		case CHANGE_EMAIL: 
 			return {...state, data: {...state.data, email: action.payload}};
+		case CHANGE_IMAGE: 
+			return {...state, data: {...state.data, img: action.payload}};
 		case ADD_GAME:
 			return {...state, data: {
 					...state.data, 

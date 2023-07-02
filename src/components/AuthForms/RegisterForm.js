@@ -5,6 +5,7 @@ import {useForm} from 'react-hook-form';
 import InputPassword from 'components/UI/Input/InputPassword.js';
 import Input from 'components/UI/Input/Input.js';
 import UserService from 'API/UserService.js';
+import defaultImage from 'assets/default-image.jpg';
 
 export default function RegisterForm() {
 	const {
@@ -25,7 +26,7 @@ export default function RegisterForm() {
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
-		const newUser = {...data, library: []}
+		const newUser = {...data, img: defaultImage, library: []};
 		registerUser(newUser);
 		navigate('/');
 	}

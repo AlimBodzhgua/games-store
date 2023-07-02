@@ -6,6 +6,7 @@
     --color-primary-fonts: rgba(255, 255, 255, 0.6);
     --color-orange: #fdca52;
     --color-blue: #21a4f7;
+    --color-blue-darken: #066dac;
     --color-white: #ffff;
 }
 
@@ -94,7 +95,20 @@ ol, ul {
     cursor: pointer;
 }
 
+.btn:disabled {
+    cursor: auto;
+}
+
 .btn--white {
     background-color: var(--color-white);
     color: var(--color-secondary);
+}
+
+.btn--blue {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
+
+.btn--blue:disabled {
+    background-color: var(--color-blue-darken);
 }

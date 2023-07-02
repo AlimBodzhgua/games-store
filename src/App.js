@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import {useSelector} from 'react-redux'; 
 import {isUserLoggedIn} from 'utils/utils.js';
 import {useAction} from 'hooks/useAction';
-import AppRouter from 'router/AppRouter.js';
+import AppRouter from 'router/AppRouter';
 import UserService from 'API/UserService';
 import './App.css';
 
@@ -23,7 +23,6 @@ export default function App() {
         if (isAuth) {
             UserService.updateData(data.id, data);
             localStorage.setItem('user', JSON.stringify(data));
-            console.log('updated');
         }
     }, [data])
 

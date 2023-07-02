@@ -103,7 +103,20 @@
 	color: var(--color-white);
 }
 
+.profile__image {
+	margin-bottom: 15px;
+}
 
-.hide {
-	display: none;
+.image {
+	height: 165px;
+	width: 165px;
+
+	object-fit: cover;
+	border-radius: 50%;
+	margin-bottom: 10px;
+}
+
+.upload__actions {
+	display: flex;
+	gap: 7px;
 }

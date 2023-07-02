@@ -4,7 +4,6 @@ import classes from './input.module.css';
 
 const Input = forwardRef((props, ref) => {
 	const { addonBefore, addonAfter, ...restProps } = props;
-	console.log(restProps)
 
 	return (
 		<div className={classes.input}>

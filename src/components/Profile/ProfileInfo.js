@@ -1,8 +1,8 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useMemo} from 'react';
 import {useAction} from 'hooks/useAction';
 import ItemActions from './ItemActions';
-import Input from 'components/UI/Input/Input.js';
-import ImageUpload from './ImageUpload.js';
+import Input from 'components/UI/Input/Input';
+import ProfileImage from './ProfileImage';
 import PropTypes from 'prop-types';
 
 import classes from './profile.module.css';
@@ -28,6 +28,14 @@ export default function ProfileInfo({data}) {
 		setEmailChange({...loginChange, isChanging: false});
 	}
 
+	const onLoginChange = (e) => {
+		setLoginChange({...loginChange, value: e.target.value});
+	}
+
+	const onEmailChange = (e) => {
+		setEmailChange({...emailChange, value: e.target.value});
+	}
+
 	const changeLogin = (login) => {
 		changeLoginAction(login);
 		handleCancelLoginChange();
@@ -40,7 +48,7 @@ export default function ProfileInfo({data}) {
 
 	return (
 		<div className={classes.profile}>
-			<ImageUpload />
+			<ProfileImage img={data.img}/>
 		
 			<div className={classes.info}>
 				<h3 className={classes.info__title}>Login</h3>
@@ -51,7 +59,7 @@ export default function ProfileInfo({data}) {
 								className={classes.input} 
 								type="text" 
 								value={loginChange.value} 
-								onChange={(e) => setLoginChange({...loginChange, value: e.target.value})}
+								onChange={onLoginChange}
 						  	/>
 						  	<ItemActions 
 						  		completeHandler={() => changeLogin(loginChange.value)}
@@ -78,7 +86,7 @@ export default function ProfileInfo({data}) {
 								className={classes.input} 
 								type="text" 
 								value={emailChange.value} 
-								onChange={(e) => setEmailChange({...emailChange, value: e.target.value})}
+								onChange={onEmailChange}
 						  	/>
 						  	<ItemActions 
 						  		completeHandler={() => changeEmail(loginChange.value)}

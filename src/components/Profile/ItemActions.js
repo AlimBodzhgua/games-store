@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classes from './profile.module.css';
 
 export default function ItemActions({completeHandler, cancelHandler}) {
@@ -13,4 +14,9 @@ export default function ItemActions({completeHandler, cancelHandler}) {
 		  	>&#10005;</button>
 	  	</div>
 	)
+}
+
+ItemActions.propTypes = {
+	completeHandler: PropTypes.func.isRequired,
+	cancelHandler: PropTypes.func.isRequired,
 }

@@ -14,7 +14,6 @@ export default function UserActions() {
 		e.preventDefault();
 		const confirm = window.confirm('Are you sure you want to logout?');
 		if (confirm) logout();
-		
 	}
 
 	return (

@@ -21,7 +21,10 @@ export default function UserActions() {
 		<div className={classes.actions}>
 			{user.isAuth 
 				?	<>
-						<h3>{user.data.login}</h3>
+						<NavLink 
+							to='/profile'
+							className={classes.actions__link}
+						>{user.data.login}</NavLink>
 						<button onClick={handleClick} className={classes.btn}>
 							<Signout />
 						</button>

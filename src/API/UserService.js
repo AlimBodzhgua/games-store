@@ -14,6 +14,7 @@ export default class UserService {
 		const body = {
      		"email": data.email,
       		"login": data.login,
+      		"img": data.img,
       		"library": data.library,
 		}
 		axios.patch(`http://localhost:8080/users/${id}`, body);	

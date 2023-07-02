@@ -21,8 +21,9 @@ export default function App() {
 
     useEffect(() => {
         if (isAuth) {
-            UserService.updateLibrary(data.id, data.library);
+            UserService.updateData(data.id, data);
             localStorage.setItem('user', JSON.stringify(data));
+            console.log('updated');
         }
     }, [data])
 

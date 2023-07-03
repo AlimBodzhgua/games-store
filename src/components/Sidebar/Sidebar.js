@@ -5,11 +5,10 @@ import {NavLink} from 'react-router-dom';
 import {RotatingLines} from 'react-loader-spinner';
 import GamesService from 'API/GamesService';
 import GenresList from './Genres/GenresList';
+import SidebarHeader from './SidebarHeader';
 
 import classes from './sidebar.module.css';
 
-import {ReactComponent as Home} from 'assets/icons/home.svg';
-import {ReactComponent as Library} from 'assets/icons/library.svg';
 
 function Sidebar() {
 	const [genres, setGenres] = useState([]);
@@ -23,20 +22,9 @@ function Sidebar() {
 		fetchGenres();
 	}, [])
 
-	const handleClick = () => {
-		setGenreAction(null);
-	}
-
 	return (
 		<aside className={classes.sidebar}>
-			<div className={classes.section_link}>
-				<Home className={classes.home__icon}/>
-				<h3 onClick={handleClick}><NavLink to="/" className={classes.sidebar__link}>Home</NavLink></h3>
-			</div>
-			<div className={classes.section_link}>
-				<Library className={classes.library__icon}/>
-				<h3><NavLink to="/library" className={classes.sidebar__link}>My Library</NavLink></h3>
-			</div>
+			<SidebarHeader />
 
 			<h2 className={classes.section_title}>Genres</h2>
 			{genresLoading 

@@ -1,10 +1,12 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, memo} from 'react';
+import {useSelector} from 'react-redux';
 import {useAction} from 'hooks/useAction';
 import ReactFileReader from 'react-file-reader';
 
 import classes from './profile.module.css';
 
-export default function ProfileImage({img}) {
+const ProfileImage = ()  => {
+	const {img} = useSelector(state => state.user.data); 
 	const [selectedFile, setSelectedFile] = useState(null);
 	const [isUploaded, setIsUploaded] = useState(false);
 	const {changeImageAction} = useAction();
@@ -35,3 +37,5 @@ export default function ProfileImage({img}) {
 		</div>
 	)
 }
+
+export default memo(ProfileImage);

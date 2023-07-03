@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo} from 'react';
+import {useState, useEffect, useMemo, useCallback} from 'react';
 import {useAction} from 'hooks/useAction';
 import ProfileImage from './ProfileImage';
 import PropTypes from 'prop-types';
@@ -47,7 +47,7 @@ export default function ProfileInfo({data}) {
 
 	return (
 		<div className={classes.profile}>
-			<ProfileImage img={data.img}/>
+			<ProfileImage/>
 		
 			<div className={classes.info}>
 				<h3 className={classes.info__title}>Login</h3>

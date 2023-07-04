@@ -13,8 +13,7 @@ export default function GenreItem({id, name}) {
 	
 	const handleClick = (e, genre) => {
 		e.preventDefault();
-		navigate('/');
-		dispatch(setGenreAction(genre.toLowerCase()));
+		navigate(`/genre/${genre.toLowerCase()}`);
 	}
 
 	return (

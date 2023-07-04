@@ -12,6 +12,7 @@ const NotFoundPage = React.lazy(() => import('pages/NotFoundPage'));
 
 export const routes = [
 	{path: '', component: <HomePage />},
+	{path: '/genre/:id', component: <HomePage />},
 	{path: '/game/:id', component: <GameDetailsPage />},
 	{path: '/library', component: <LibraryPage />},
 	{path: '/profile', component: <ProfilePage />},

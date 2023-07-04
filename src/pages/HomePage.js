@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {useAction} from 'hooks/useAction';
 import {useSelector} from 'react-redux';
+import {useParams} from 'react-router-dom';
 import GamesList from 'components/Games/GamesList';
 import Sidebar from 'components/Sidebar/Sidebar';
 import Header from 'components/Header/Header';
@@ -12,18 +13,25 @@ import UserService from 'API/UserService';
 import {useFetching} from 'hooks/useFetching';
 
 
-export default function GamesPage() {
+export default function HomePage() {
     const {games, page, genre} = useSelector(state => state.games);
     const [fetchGames, isLoading, error] = useFetching(async() => {
         const response = await GamesService.getGames(page, genre);
         setGamesAction(response.results);
     })
+    const params = useParams();
 
-    const {setGamesAction} = useAction();
+    const {setGamesAction, setGenreAction} = useAction();
 
     useEffect(() => {
         fetchGames();
     }, [page, genre])
+
+    useEffect(() => {
+        if(params) {
+            setGenreAction(params.id);
+        } else console.log('no params');
+    }, [params])
 
 	return (
 		<div className="page page--flex">

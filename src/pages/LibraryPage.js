@@ -6,6 +6,7 @@ import Sidebar from 'components/Sidebar/Sidebar';
 import GameItem from 'components/Games/GameItem';
 import GamesList from 'components/Games/GamesList';
 
+import classes from './pages.module.css'
 
 export default function LibraryPage() {
 	const { data } = useSelector(state => state.user);
@@ -20,13 +21,13 @@ export default function LibraryPage() {
 	}
 
 	return (
-		<div className='page page--flex'>
+		<div className={`${classes.page} ${classes.pageFlex}`}>
 			<Sidebar />
-			<div className='page__details'>
-				<div className='page__header'>
-					<h2 style={{fontSize: '38px'}}>My library</h2>
+			<div className={classes.page__details}>
+				<div className={classes.page__header}>
+					<h2 className={classes.library__title}>My library</h2>
 					<button 
-						className='btn' 
+						className={classes.btn}
 						onClick={handleClick}
 					>Clear Library</button>
 				</div>

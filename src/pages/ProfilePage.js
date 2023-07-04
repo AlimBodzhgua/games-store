@@ -1,10 +1,12 @@
 import {useSelector} from 'react-redux';
 import {useAction} from 'hooks/useAction';
+import {useNavigate, NavLink} from 'react-router-dom'
 import ProfileInfo from 'components/Profile/ProfileInfo';
-import {useNavigate} from 'react-router-dom'
+
+import classes from './pages.module.css';
 
 export default function ProfilePage() {
-	const {data} = useSelector(state => state.user);
+	const {isAuth, data} = useSelector(state => state.user);
 	const {logout} = useAction();
 	const navigate = useNavigate();
 
@@ -19,14 +21,24 @@ export default function ProfilePage() {
 			navigate('/');
 		}
 	}
-	
+		
+	if (!isAuth) {
+		return (
+			<div>
+				<h1 className={classes.notlogged__title}>You not logged in</h1>
+				<NavLink to='/login' className={`${classes.btn} ${classes.btnMt}`}>Login</NavLink>
+				<NavLink to='/register' className={`${classes.btn} ${classes.btnMt}`}>Register</NavLink>
+			</div>
+		)
+	}
+
 	return (
-		<div className='page'>
-			<div className='page__header page__header--sm'>
+		<div className={classes.page}>
+			<div className={`${classes.page__header} ${classes.page__profile}`}>
 				<h1>Account</h1>
-				<div style={{display: 'flex', gap: '5px'}}>
-					<button className='btn' onClick={handleClick}>go back</button>
-					<button className='btn' onClick={handleLogout}>logout</button>
+				<div className={classes.actions}>
+					<button className={classes.btn} onClick={handleClick}>go back</button>
+					<button className={classes.btn} onClick={handleLogout}>logout</button>
 				</div>
 			</div>
 			<ProfileInfo data={data}/>

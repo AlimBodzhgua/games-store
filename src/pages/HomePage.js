@@ -12,6 +12,7 @@ import GamesService from 'API/GamesService'
 import UserService from 'API/UserService';
 import {useFetching} from 'hooks/useFetching';
 
+import classes from './pages.module.css'
 
 export default function HomePage() {
     const {games, page, genre} = useSelector(state => state.games);
@@ -34,9 +35,9 @@ export default function HomePage() {
     }, [params])
 
 	return (
-		<div className="page page--flex">
+		<div className={`${classes.page} ${classes.pageFlex}`}>
             <Sidebar/>
-            <div className="page__home">
+            <div className={classes.page__home}>
                 <Header />
                 {isLoading 
                     ?   <RotatingLines
@@ -48,7 +49,7 @@ export default function HomePage() {
                         />
                     :   <>
                             {genre && 
-                                <h2 className="page__title">
+                                <h2 className={classes.page__title}>
                                     {capitalizeFirstLetter(genre)} Games
                                 </h2>
                             }

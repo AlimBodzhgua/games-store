@@ -1,8 +1,10 @@
 import RegisterForm from 'components/AuthForms/RegisterForm.js';
 
+import classes from './pages.module.css'
+
 export default function RegisterPage() {
 	return (
-		<div className="page page--centered">
+		<div className={`${classes.page} ${classes.pageCentered}`}>
 			<RegisterForm />
 		</div>
 	)

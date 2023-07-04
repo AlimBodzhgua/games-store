@@ -1,0 +1,82 @@
+
+.page {
+    width: 100%;
+
+    padding: 20px 30px;
+}
+
+.pageFlex {
+    display: flex;
+}
+
+.pageCentered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page__header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+.page__profile {
+    max-width: 460px;
+    width: 100%;
+}
+
+.page__home {
+    width: 85%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.page__details {
+    width: 85%;
+    padding: 30px 30px;
+    border: 1px solid #fff;
+}
+
+.page__title {
+    font-size: 34px;
+    margin: 0 25px;
+    text-align: left;
+}
+
+.library__title {
+    font-size: 38px;
+}
+
+.notfound__title {
+    font-size: 30px;
+    margin: 40px 0;
+}
+
+.notlogged__title {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.btn {
+    padding: 10px 14px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #e6e6e6;
+
+    background-color: #2D2D2D;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btnMt {
+    margin-top: 12px;
+}

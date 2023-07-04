@@ -7,6 +7,8 @@ import GameDetailsInfo from 'components/GameDetailsInfo/GameDetailsInfo';
 import GameScreenshots from 'components/GameScreenshots/GameScreenshots';
 import {RotatingLines} from 'react-loader-spinner';
 
+import classes from './pages.module.css'
+
 export default function GameDetailsPage() {
 	const params = useParams();
 	const [gameDetails, setGameDetails] = useState({});
@@ -24,9 +26,9 @@ export default function GameDetailsPage() {
 	}, [gameDetails])
 
 	return (
-		<div className="page page--flex">
+		<div className={`${classes.page} ${classes.pageFlex}`}>
 			<Sidebar />
-			<div className="page__details">
+			<div className={classes.page__details}>
 				{isLoading 
 					?	<RotatingLines
                             strokeColor="grey"

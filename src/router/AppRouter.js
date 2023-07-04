@@ -2,7 +2,7 @@ import React, {Suspense} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import {RotatingLines} from 'react-loader-spinner';
 import {useSelector} from 'react-redux';
-import {routes, authRoutes} from './routes';
+import {routes, authRoutes, privateRoutes} from './routes';
 
 export default function AppRouter() {
 	const { isAuth } = useSelector(state => state.user);

@@ -6,16 +6,14 @@ const LibraryPage = React.lazy(() => import('pages/LibraryPage'));
 const ProfilePage = React.lazy(() => import('pages/ProfilePage'));
 const RegisterPage = React.lazy(() => import('pages/RegisterPage'));
 const LoginPage = React.lazy(() => import('pages/LoginPage'));
-
 const NotFoundPage = React.lazy(() => import('pages/NotFoundPage'));
-
 
 export const routes = [
 	{path: '', component: <HomePage />},
 	{path: '/genre/:id', component: <HomePage />},
 	{path: '/game/:id', component: <GameDetailsPage />},
-	{path: '/library', component: <LibraryPage />},
 	{path: '/profile', component: <ProfilePage />},
+	{path: '/library', component: <LibraryPage />},
 	{path: '*', component: <NotFoundPage />},
 ]
 

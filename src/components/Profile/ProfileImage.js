@@ -26,11 +26,11 @@ const ProfileImage = ()  => {
 			<img className={classes.image} src={img} />
 			<div className={classes.upload__actions}>
 				<ReactFileReader base64 handleFiles={handleClick}>
-					<button className='btn btn--white'>upload image</button>
+					<button className={`${classes.btn} ${classes.btnWhite}`}>upload image</button>
 				</ReactFileReader>
 				<button 
 					onClick={handleSave}
-					className='btn btn--blue'
+					className={`${classes.btn} ${classes.btnBlue}`}
 					disabled={isUploaded ? false : true}
 				>save image</button>
 			</div>

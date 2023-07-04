@@ -31,7 +31,7 @@ export default function InfoItem({
 					<div>{value}</div>
 					<button 
 						onClick={handleChanging} 
-						className={classes.btn}
+						className={classes.btnInline}
 					>edit</button>
 				  </>
 			}

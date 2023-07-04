@@ -28,9 +28,9 @@ export default function HomePage() {
     }, [page, genre])
 
     useEffect(() => {
-        if(params) {
+        if (params) {
             setGenreAction(params.id);
-        } else console.log('no params');
+        }
     }, [params])
 
 	return (

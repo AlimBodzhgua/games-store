@@ -1,6 +1,6 @@
-# Game Store
+# Games Store
 
-Game Store
+Games Store
 React web application
 
 How to run project

@@ -9,8 +9,8 @@ import {
 	CHANGE_IMAGE,
 	REMOVE_GAME,
 	CLEAR_LIBRARY
-} from './userReducer.js';
-import UserService from 'API/UserService.js';
+} from './userReducer';
+import { UserService }from '@/API/UserService';
 
 export const UserActions = {
 	setIsLoadingAction: (loading) => ({type:SET_LOADING, payload: loading}),

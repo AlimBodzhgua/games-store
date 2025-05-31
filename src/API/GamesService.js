@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const key = '3cfb0003af6a422ab1e4230e1a8c4b39'
 
-export default class GamesService {
+export class GamesService {
 	static async getGames(page, genre) {
 		let params = {
 			key: '3cfb0003af6a422ab1e4230e1a8c4b39',

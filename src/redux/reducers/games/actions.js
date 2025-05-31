@@ -2,7 +2,7 @@ import {
 	SET_GAMES,
 	SET_GENRE,
 	SET_PAGE
-} from './gamesReducer.js';
+} from './gamesReducer';
 
 export const GamesActions = {
 	setGamesAction: (games) => ({type: SET_GAMES, payload: games}),

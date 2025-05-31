@@ -1,5 +1,5 @@
-import {UserActions} from './user/actions.js';
-import {GamesActions} from './games/actions.js'
+import { UserActions } from './user/actions';
+import { GamesActions } from './games/actions'
 
 
 export const actions = {

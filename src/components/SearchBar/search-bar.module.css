@@ -13,7 +13,7 @@
 	border: none;
 
 	background-color: #3B3B3B;
-	background-image: url('assets/icons/search.svg');
+	/* background-image: url('@/assets/icons/search.svg'); */
 	background-position: left 10px center;
 	background-repeat: no-repeat;
 	background-size: 21px;

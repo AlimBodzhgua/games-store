@@ -1,6 +1,6 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
-import {gamesReducer} from 'redux/reducers/games/gamesReducer';
-import {userReducer} from 'redux/reducers/user/userReducer';
+import {gamesReducer} from '@/redux/reducers/games/gamesReducer';
+import {userReducer} from '@/redux/reducers/user/userReducer';
 import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({

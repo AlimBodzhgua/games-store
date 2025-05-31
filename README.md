@@ -3,9 +3,9 @@
 Games Store
 React web application
 
-How to run project
-Open project in your code editor
-Run command npm install in terminal (console) for installing all required packages (Node.js is required: https://nodejs.org/en/)
+## How to run project
+Open project in your code editor <br />
+Run command ```npm install``` in terminal (console) for installing all required packages ([Node.js](https://nodejs.org/en/) is required)
 
 To start project you can use the following command:
 ### `npm run dev`

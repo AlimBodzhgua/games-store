@@ -1,0 +1,66 @@
+import { useState, useEffect, useRef, ChangeEvent } from 'react';
+import { useAction } from '@/hooks/useAction';
+import { useDebounce } from '@/hooks/useDebounce';
+import { useAppSelector } from '@/hooks/redux';
+import { GamesService } from '@/API/GamesService';
+
+import classes from './search-bar.module.css';
+
+export const SearchBar = () => {
+	const [value, setValue] = useState('');
+	const { page, games } = useAppSelector((state) => state.games);
+
+	const { setGamesAction, setErrorAction } = useAction();
+	const inputRef = useRef<HTMLInputElement | null>(null);
+
+	const search = async (search: string) => {
+		try {
+			const response = await GamesService.searchGame(search);
+			setGamesAction(response.data);
+		} catch (err) {
+			setErrorAction(JSON.stringify(err));
+		}
+	}
+
+	const debouncedSearch = useDebounce(search, 450);
+
+	const toggleInputFocus = (e: KeyboardEvent) => {
+		if (e.key === 'Enter' && e.altKey === true) {
+			if (document.activeElement === inputRef.current) {
+				inputRef.current?.blur();
+			} else {
+				inputRef.current?.focus();
+			}
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener('keydown', toggleInputFocus);
+
+		return () => window.removeEventListener('keydown', toggleInputFocus);
+	}, []);
+
+	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setValue(e.target.value);
+		debouncedSearch(e.target.value);
+	};
+
+	
+	return (
+		<div className={classes.searchBar}>
+			<input
+				ref={inputRef}
+				value={value}
+				onChange={onChange}
+				className={classes.input}
+				type='text'
+				placeholder='Search'
+			/>
+			<div className={classes.hotkey}>
+				<div className={classes.hotkey__item}>alt</div>
+				<span>+</span>
+				<div className={classes.hotkey__item}>enter</div>
+			</div>
+		</div>
+	);
+};

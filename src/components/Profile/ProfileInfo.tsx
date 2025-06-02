@@ -19,7 +19,7 @@ export const ProfileInfo: FC<ProfileInfoProps> = ({ user }) => {
 	const { changeLoginAction, changeEmailAction } = useAction();
 
 	const onToggleEmailChanging = () => {
-		setEmailChanging(true);
+		setEmailChanging((prev) => !prev);
 	};
 
 	const onToggleLoginChanging = () => {

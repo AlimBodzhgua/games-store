@@ -4,6 +4,7 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import { ProfileInfo } from '@/components/Profile/ProfileInfo';
 
 import classes from './pages.module.css';
+import { Button } from '@/components/UI/Button/Button';
 
 export default function ProfilePage() {
 	const { isAuth, data } = useAppSelector((state) => state.user);
@@ -41,12 +42,12 @@ export default function ProfilePage() {
 			<div className={`${classes.page__header} ${classes.page__profile}`}>
 				<h1>Account</h1>
 				<div className={classes.actions}>
-					<button className={classes.btn} onClick={handleClick}>
+					<Button onClick={handleClick}>
 						go back
-					</button>
-					<button className={classes.btn} onClick={handleLogout}>
+					</Button>
+					<Button onClick={handleLogout}>
 						logout
-					</button>
+					</Button>
 				</div>
 			</div>
 			{data && <ProfileInfo user={data} />}

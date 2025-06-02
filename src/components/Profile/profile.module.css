@@ -60,77 +60,12 @@
 	font-weight: inherit;
 }
 
-.btn {
-    padding: 10px 14px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #e6e6e6;
-
-    background-color: #2D2D2D;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:disabled {
-    cursor: auto;
-}
-
-.btnInline {
-	background: none;
-	border: none;
-
-	font-size: inherit;
-	color: inherit;
-	font-weight: 600;
-}
-
-.btnInline:hover {
-	cursor: pointer;
-}
-
-.btnWhite {
-    background-color: var(--color-white);
-    color: var(--color-secondary);
-}
-
-.btnBlue {
-    background-color: var(--color-blue);
-    color: var(--color-white);
-}
-
-.btnBlue:disabled {
-    background-color: var(--color-blue-darken);
-}
-
-
 .actions {
 	height: auto;
 	display: flex;
 	justify-content: space-between;
-	width: 20%;
+	gap: 6px;
 	height: 60%;
-}
-
-.btn__complete,
-.btn__cancel {
-	font-weight: 700;
-	border: none;
-	height: 100%;
-	width: 35px;
-
-	font-size: 20px;
-	cursor: pointer;
-}
-
-
-.btn__complete {
-	background-color: var(--color-white);
-}
-
-.btn__cancel {
-	background-color: var(--color-blue);
-	color: var(--color-white);
 }
 
 .profile__image {

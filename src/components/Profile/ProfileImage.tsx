@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useAction } from '@/hooks/useAction';
+import { useAppSelector } from '@/hooks/redux';
+// @ts-ignore
 import ReactFileReader from 'react-file-reader';
 
 import classes from './profile.module.css';
-import { useAppSelector } from '@/hooks/redux';
+import { Button } from '../UI/Button/Button';
 
 export const ProfileImage = () => {
 	const img = useAppSelector((state) => state.user.data?.img);
@@ -11,6 +13,7 @@ export const ProfileImage = () => {
 	const [isUploaded, setIsUploaded] = useState<boolean>(false);
 	const { changeImageAction } = useAction();
 
+	// @ts-ignore
 	const handleClick = (e) => {
 		setSelectedFile(e.base64);
 		setIsUploaded(true);
@@ -28,17 +31,17 @@ export const ProfileImage = () => {
 			<img className={classes.image} src={img} />
 			<div className={classes.upload__actions}>
 				<ReactFileReader base64 handleFiles={handleClick}>
-					<button className={`${classes.btn} ${classes.btnWhite}`}>
+					<Button theme='white'>
 						upload image
-					</button>
+					</Button>
 				</ReactFileReader>
-				<button
+				<Button
+					theme='blue'
 					onClick={handleSave}
-					className={`${classes.btn} ${classes.btnBlue}`}
 					disabled={isUploaded ? false : true}
 				>
 					save image
-				</button>
+				</Button>
 			</div>
 		</div>
 	);

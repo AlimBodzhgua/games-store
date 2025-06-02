@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import classes from './profile.module.css';
+import { Button } from '../UI/Button/Button';
 
 interface ItemActionsProps {
 	onComplete: () => void;
@@ -10,12 +11,12 @@ export const ItemActions: FC<ItemActionsProps> = (props) => {
 	const { onComplete, onCancel } = props;
 	return (
 		<div className={classes.actions}>
-			<button onClick={onComplete} className={classes.btn__complete}>
+			<Button onClick={onComplete} theme='blue'>
 				&#x2714;
-			</button>
-			<button onClick={onCancel} className={classes.btn__cancel}>
+			</Button>
+			<Button onClick={onCancel}>
 				&#10005;
-			</button>
+			</Button>
 		</div>
 	);
 };

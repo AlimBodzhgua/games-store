@@ -4,6 +4,7 @@ import { ItemActions } from './ItemActions';
 
 import classes from './profile.module.css';
 import { ChangeEvent, FC } from 'react';
+import { Button } from '../UI/Button/Button';
 
 interface InfoItemProps {
 	value: string;
@@ -42,9 +43,9 @@ export const InfoItem: FC<InfoItemProps> = (props) => {
 			) : (
 				<>
 					<div>{value}</div>
-					<button onClick={onCancel} className={classes.btnInline}>
+					<Button onClick={onCancel}>
 						edit
-					</button>
+					</Button>
 				</>
 			)}
 		</div>

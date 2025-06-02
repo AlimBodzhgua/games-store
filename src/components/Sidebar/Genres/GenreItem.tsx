@@ -1,9 +1,8 @@
 import { FC } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useAction } from '@/hooks/useAction';
 import { useAppSelector } from '@/hooks/redux';
 import type { Genre } from '@/types/game';
+import classnames from 'classnames';
 import classes from './genres.module.css';
 
 interface GenreItemProps {
@@ -11,10 +10,8 @@ interface GenreItemProps {
 }
 
 export const GenreItem: FC<GenreItemProps> = (props) => {
-	const { id, name } = props.genre;
+	const { name } = props.genre;
 	const { genre } = useAppSelector((state) => state.games);
-	const { setGenreAction } = useAction();
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const handleClick = () => {
@@ -25,11 +22,7 @@ export const GenreItem: FC<GenreItemProps> = (props) => {
 		<li className={classes.item}>
 			<button
 				onClick={handleClick}
-				className={
-					name.toLowerCase() === genre
-						? `${classes.item__link} ${classes.active}`
-						: classes.item__link
-				}
+				className={classnames(classes.item__link, {[classes.active]: name.toLowerCase() === genre})}
 			>
 				{name}
 			</button>

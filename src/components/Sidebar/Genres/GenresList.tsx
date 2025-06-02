@@ -1,13 +1,26 @@
-import { GenreItem } from './GenreItem.js';
 import { FC } from 'react';
-import { Genre } from '@/types/game.js';
+import { Skeleton } from '@/components/UI/Skeleton/Skeleton.js';
+import type { Genre } from '@/types/game.js';
+import { GenreItem } from './GenreItem.js';
+import classes from './genres.module.css';
 
 interface GenresListProps {
-	genres: Array<Genre>
+	genres: Array<Genre>;
+	isLoading: boolean;
 }
 
 export const GenresList: FC<GenresListProps> = (props) => {
-	const { genres } = props;
+	const { genres, isLoading } = props;
+
+	if (isLoading) {
+		return (
+			<ul className={classes.GenresList}>
+				{new Array(18).fill(0).map((_, index) => (
+					<Skeleton width='120px' height='18px' radius='5px' key={index} />
+				))}
+			</ul>
+		);
+	}
 
 	return (
 		<ul>

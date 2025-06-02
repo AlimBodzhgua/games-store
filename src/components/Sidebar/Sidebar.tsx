@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { RotatingLines } from 'react-loader-spinner';
-import { useAction } from '@/hooks/useAction';
 import { useFetching } from '@/hooks/useFetching';
 import { GamesService } from '@/Services/GamesService';
 import { GenresList } from './Genres/GenresList';
@@ -14,7 +12,6 @@ export const Sidebar = () => {
 		const response = await GamesService.getGenres();
 		setGenres(response.results);
 	});
-	const { setGenreAction } = useAction();
 
 	useEffect(() => {
 		fetchGenres();
@@ -25,17 +22,7 @@ export const Sidebar = () => {
 			<SidebarHeader />
 
 			<h2 className={classes.section_title}>Genres</h2>
-			{isLoading ? (
-				<RotatingLines
-					strokeColor='grey'
-					strokeWidth='5'
-					animationDuration='0.75'
-					width='55'
-					visible={true}
-				/>
-			) : (
-				genres.length && <GenresList genres={genres} />
-			)}
+			<GenresList genres={genres} isLoading={isLoading}/>
 		</aside>
 	);
 }

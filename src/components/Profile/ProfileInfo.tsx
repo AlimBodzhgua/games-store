@@ -15,7 +15,7 @@ export const ProfileInfo: FC<ProfileInfoProps> = ({ user }) => {
 
 	const [login, setLogin] = useState<string>(user.login);
 	const [loginChanging, setLoginChanging] = useState<boolean>(false);
-
+	
 	const { changeLoginAction, changeEmailAction } = useAction();
 
 	const onToggleEmailChanging = () => {

@@ -1,4 +1,4 @@
-import axios from '@/API/axios';
+import axios from 'axios';
 
 const baseHeaders = {
 	'Content-Type': 'application/json',

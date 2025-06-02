@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useAction } from '@/hooks/useAction';
 import { useParams } from 'react-router-dom';
-import { GamesService } from '@/API/GamesService';
+import { GamesService } from '@/Services/GamesService';
 import { GamesList } from '@/components/Games/GamesList';
 import { Sidebar } from '@/components/Sidebar/Sidebar';
 import { Header } from '@/components/Header/Header';

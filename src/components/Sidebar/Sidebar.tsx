@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { RotatingLines } from 'react-loader-spinner';
 import { useAction } from '@/hooks/useAction';
 import { useFetching } from '@/hooks/useFetching';
-import { GamesService } from '@/API/GamesService';
+import { GamesService } from '@/Services/GamesService';
 import { GenresList } from './Genres/GenresList';
 import { SidebarHeader} from './SidebarHeader';
 

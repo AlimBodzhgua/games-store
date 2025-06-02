@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useFetching } from '@/hooks/useFetching';
-import { GamesService } from '@/API/GamesService';
+import { GamesService } from '@/Services/GamesService';
 import { ScreenshotsList } from './ScreenshotsList';
 
 import classes from './screenshots.module.css';

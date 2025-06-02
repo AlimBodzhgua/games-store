@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, ChangeEvent } from 'react';
 import { useAction } from '@/hooks/useAction';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useAppSelector } from '@/hooks/redux';
-import { GamesService } from '@/API/GamesService';
+import { GamesService } from '@/Services/GamesService';
 
 import classes from './search-bar.module.css';
 

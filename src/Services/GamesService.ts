@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { Game, GameDetails } from '@/types/game';
 import { transformGamesResponseData } from '@/utils/utils';
-import { gamesApi } from '@/axiosInstance';
+import { gamesApi } from '@/API/axios';
 
 export class GamesService {
 	static async getGames(page: number, genreName?: string): Promise<Game[]> {

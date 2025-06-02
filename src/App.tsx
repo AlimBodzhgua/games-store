@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { isUserLoggedIn } from '@/utils/utils';
 import { useAction } from '@/hooks/useAction';
-import { UserService } from '@/API/UserService';
+import { UserService } from '@/Services/UserService';
 import { USER_LOCALSTORAGE_KEY } from '@/constants/localsrorage';
 import { AppRouter } from '@/router/AppRouter';
 import { useAppSelector } from './hooks/redux';

@@ -1,5 +1,5 @@
 import { useAction } from '@/hooks/useAction';
-import { UserService } from '@/API/UserService';
+import { UserService } from '@/Services/UserService';
 import { Sidebar } from '@/components/Sidebar/Sidebar';
 import { GamesList } from '@/components/Games/GamesList';
 import { useAppSelector } from '@/hooks/redux';

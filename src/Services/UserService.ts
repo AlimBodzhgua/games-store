@@ -1,4 +1,4 @@
-import { baseApi } from '@/axiosInstance';
+import { baseApi } from '@/API/axios';
 import type { LoginUserDTO, RegisterUserDTO, User } from '@/types/user';
 
 type UserResponse = {

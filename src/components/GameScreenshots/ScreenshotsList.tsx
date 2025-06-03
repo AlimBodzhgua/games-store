@@ -1,6 +1,6 @@
-import { useState, useRef, memo, FC } from 'react';
-import { Modal } from '@/components/UI/Modal/Modal';
+import { useState, useRef, FC } from 'react';
 import classes from './screenshots.module.css';
+import { Modal } from '../UI/Modal/Modal';
 
 type Screenshot = {
 	id: number;
@@ -13,13 +13,15 @@ interface ScreenshotsListProps {
 
 export const ScreenshotsList: FC<ScreenshotsListProps> = (props) => {
 	const { screenshots } = props;
-	const [increasedScreenshot, setIncreasedScreenshot] = useState(false);
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const imageRef = useRef<string>(undefined);
 
 	const increaseScreenshot = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
 		imageRef.current = e.currentTarget.src;
-		setIncreasedScreenshot(!increasedScreenshot);
+		setIsOpen((prev) => !prev);
 	};
+
+	const onCloseModal = () => setIsOpen(false);
 
 	return (
 		<>
@@ -31,11 +33,9 @@ export const ScreenshotsList: FC<ScreenshotsListProps> = (props) => {
 					className={classes.screenshot}
 				/>
 			))}
-			{increasedScreenshot && (
-				<Modal handler={increaseScreenshot}>
-					<img src={imageRef.current} className={classes.screenshot__opened} />
-				</Modal>
-			)}
+			<Modal isOpen={isOpen} onClose={onCloseModal} className={classes.modal}>
+				<img src={imageRef.current} className={classes.screenshot__opened} />
+			</Modal>
 		</>
 	);
 };

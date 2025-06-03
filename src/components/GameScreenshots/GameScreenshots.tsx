@@ -12,7 +12,7 @@ interface GameScreenshotsProps {
 export const GameScreenshots: FC<GameScreenshotsProps> = ({ id }) => {
 	const [showScreenshots, setShowScreenshots] = useState(false);
 	const [screenshots, setScreenshots] = useState([]);
-	const { fetching: fetchScreenshots, isLoading, error } = useFetching(async () => {
+	const { fetching: fetchScreenshots } = useFetching(async () => {
 		const response = await GamesService.getGameScreenshots(id);
 		setScreenshots(response.results);
 	});

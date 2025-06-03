@@ -9,6 +9,7 @@
 		"axios": "^1.4.0",
 		"classnames": "^2.5.1",
 		"concurrently": "^8.2.0",
+		"globals": "^16.2.0",
 		"json-server": "^0.17.3",
 		"json-server-auth": "^2.1.0",
 		"prop-types": "^15.8.1",
@@ -28,7 +29,8 @@
 		"server": "json-server-auth --watch server/db.json --port 8080",
 		"dev": "concurrently \"npm run start\" \"npm run server\"",
 		"build": "vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"lint:ts": "eslint ."
 	},
 	"eslintConfig": {
 		"extends": [
@@ -49,11 +51,21 @@
 		]
 	},
 	"devDependencies": {
+		"@eslint/js": "^9.28.0",
+		"@types/eslint": "^9.6.1",
 		"@types/node": "^22.15.29",
 		"@types/react": "^19.1.6",
 		"@types/react-dom": "^19.1.5",
+		"@typescript-eslint/parser": "^8.33.1",
 		"@vitejs/plugin-react": "^4.5.0",
+		"eslint": "^8.57.1",
+		"eslint-config-prettier": "^10.1.5",
+		"eslint-import-resolver-typescript": "^4.4.2",
+		"eslint-plugin-import": "^2.31.0",
+		"eslint-plugin-react": "^7.37.5",
+		"eslint-plugin-react-refresh": "^0.4.20",
 		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.33.1",
 		"vite": "^6.3.5",
 		"vite-plugin-svgr": "^4.3.0"
 	}

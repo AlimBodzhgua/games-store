@@ -1,10 +1,8 @@
-import PropTypes from 'prop-types';
-import { Input } from '@/components/UI/Input/Input';
-import { ItemActions } from './ItemActions';
-
-import classes from './profile.module.css';
 import { ChangeEvent, FC } from 'react';
-import { Button } from '../UI/Button/Button';
+import { Input } from '@/components/UI/Input/Input';
+import { Button } from '@/components/UI/Button/Button';
+import { ItemActions } from './ItemActions';
+import classes from './profile.module.css';
 
 interface InfoItemProps {
 	value: string;

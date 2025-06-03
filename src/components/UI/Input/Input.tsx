@@ -1,8 +1,7 @@
-
-import { FC, InputHTMLAttributes, ReactNode, forwardRef } from 'react';
+import { InputHTMLAttributes, ReactNode, forwardRef } from 'react';
 import classes from './input.module.css';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 	addonBefore?: ReactNode;
 	addonAfter?: ReactNode;
 }

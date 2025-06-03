@@ -59,7 +59,7 @@ export const UserActions = {
 			dispatch(UserActions.setUserAction(newUser));
 			dispatch(UserActions.setIsAuthAction(true));
 		} catch (error) {
-			dispatch(UserActions.setErrorAction('Error register user'));
+			dispatch(UserActions.setErrorAction(`Error register user ${JSON.stringify(error)}`));
 		}
 	},
 
@@ -67,14 +67,14 @@ export const UserActions = {
 		try {
 			dispatch(UserActions.setIsLoadingAction(true));
 
-			let user = await UserService.login(data);
+			const user = await UserService.login(data);
 
 			localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(user));
 
 			dispatch(UserActions.setUserAction(user));
 			dispatch(UserActions.setIsAuthAction(true));
 		} catch (error) {
-			dispatch(UserActions.setErrorAction('Error login user'));
+			dispatch(UserActions.setErrorAction(`Error login user ${JSON.stringify(error)}`));
 		}
 	},
 

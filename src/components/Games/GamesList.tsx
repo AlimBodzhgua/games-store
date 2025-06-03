@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import type { Game } from '@/types/game';
 import { GameItem } from './GameItem';
 import classes from './games.module.css';

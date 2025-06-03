@@ -14,17 +14,12 @@ type RegisterFormData = {
 
 export const RegisterForm = () => {
 	const {
-		setUserAction,
-		setErrorAction,
-		setIsLoadingAction,
-		setIsAuthAction,
 		registerUser,
 	} = useAction();
 
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm<RegisterFormData>();
 

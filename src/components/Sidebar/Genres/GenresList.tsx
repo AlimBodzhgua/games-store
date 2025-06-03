@@ -16,7 +16,12 @@ export const GenresList: FC<GenresListProps> = (props) => {
 		return (
 			<ul className={classes.GenresList}>
 				{new Array(18).fill(0).map((_, index) => (
-					<Skeleton width='120px' height='18px' radius='5px' key={index} />
+					<Skeleton
+						key={index}
+						width='120px'
+						height='18px'
+						radius='5px'
+					/>
 				))}
 			</ul>
 		);

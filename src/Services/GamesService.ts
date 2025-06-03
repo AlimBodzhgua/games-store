@@ -5,7 +5,7 @@ import { gamesApi } from '@/API/axios';
 
 export class GamesService {
 	static async getGames(page: number, genreName?: string): Promise<Game[]> {
-		let params = {
+		const params = {
 			page_size: 25,
 			page: page,
 			genres: genreName,

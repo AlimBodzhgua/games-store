@@ -17,7 +17,7 @@ export class UserService {
 	}
 
 	static async login(data: LoginUserDTO): Promise<User> {
-		const response = await baseApi.post<UserResponse>(`/login`, data);
+		const response = await baseApi.post<UserResponse>('/login', data);
 
 		const user = {...response.data.user, token: response.data.accessToken, }
 
@@ -26,11 +26,11 @@ export class UserService {
 
 	static async update(data: User) {
 		const body = {
-     		"email": data.email,
-      		"login": data.login,
-      		"img": data.img,
-      		"library": data.library,
-		}
+			email: data.email,
+			login: data.login,
+			img: data.img,
+			library: data.library,
+		};
 		baseApi.patch(`/users/${data.id}`, body);	
 	}
 }

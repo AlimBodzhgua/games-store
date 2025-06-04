@@ -1,5 +1,5 @@
 import React from 'react';
-import { NotFoundPage } from '@/pages/NotFoundPage';
+import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
 const HomePage = React.lazy(() => import('@/pages/HomePage'));
 const GameDetailsPage = React.lazy(() => import('@/pages/GameDetailsPage'));

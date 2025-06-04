@@ -4,7 +4,7 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 const HomePage = React.lazy(() => import('@/pages/HomePage'));
 const GameDetailsPage = React.lazy(() => import('@/pages/GameDetailsPage'));
 const LibraryPage = React.lazy(() => import('@/pages/LibraryPage'));
-const ProfilePage = React.lazy(() => import('@/pages/ProfilePage'));
+const ProfilePage = React.lazy(() => import('@/pages/Profile/ProfilePage'));
 const RegisterPage = React.lazy(() => import('@/pages/RegisterPage'));
 const LoginPage = React.lazy(() => import('@/pages/LoginPage'));
 

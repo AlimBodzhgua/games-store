@@ -25,12 +25,14 @@ export const SearchBar = () => {
 	const debouncedSearch = useDebounce(search, 450);
 
 	const toggleInputFocus = (e: KeyboardEvent) => {
-		if (e.key === 'Enter' && e.altKey === true) {
+		if (e.key === 'Enter' && e.altKey) {
 			if (document.activeElement === inputRef.current) {
 				inputRef.current?.blur();
 			} else {
 				inputRef.current?.focus();
 			}
+		} else if (e.key === 'Escape') {
+			inputRef.current?.blur();
 		}
 	};
 
@@ -44,7 +46,6 @@ export const SearchBar = () => {
 		setValue(e.target.value);
 		debouncedSearch(e.target.value);
 	};
-
 	
 	return (
 		<div className={classes.searchBar}>

@@ -6,29 +6,15 @@
 	text-align: left;
 }
 
-.sidebar__link {
-	color: #fff;
-	text-decoration: none;
-}
-
-.section_title {
-	font-size: 24px;
-	font-weight: 600;
-	color: #fff;
-
-	margin-bottom: 8px;
-}
-
-.section_link {
+.link {
 	display: flex;
+	justify-content: flex-start;
 	align-items: center;
-	margin-bottom: 5px;
-	padding: 3px 0;
+	gap: 4px;
+	margin-bottom: 4px;
 }
 
-
-.home__icon,
-.library__icon {
+.icon {
 	height: 25px;
 	margin-right: 4px;
 }

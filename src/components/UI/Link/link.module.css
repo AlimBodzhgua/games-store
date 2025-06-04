@@ -1,0 +1,33 @@
+.Link {
+	color: #fff;
+	font-weight: 600;
+	transition: all .2s linear;
+
+	&:hover {
+		opacity: .8;
+	}
+}
+
+.plain {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.sm {
+	font-size: 0.875rem;
+}
+
+.md {
+	font-size: 1rem;
+}
+
+.lg {
+	font-size: 1.125rem;
+}

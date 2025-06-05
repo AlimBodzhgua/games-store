@@ -1,0 +1,9 @@
+.Hotkey {
+	border: 1px solid var(--color-primary-fonts); 
+	border-radius: 3px;
+	
+	font-size: 11px;
+	color: hsla(0, 0%, 100%, .5);
+	
+	padding: 3px 5px;
+}

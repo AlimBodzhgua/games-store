@@ -31,19 +31,14 @@
 	color: #000;
 }
 
-.hotkey {
+.hotkeys {
 	position: absolute;
 	top: 24%;
 	right: 15px;
 
 	display: flex;
 	align-items: center;
-	font-size: 11px;
+	gap: 4px;
+	
 	color: var(--color-primary-fonts);
-}
-
-.hotkey__item {
-	border: 1px solid var(--color-primary-fonts); 
-	padding: 3px 5px;
-	margin: 0 3px;
 }

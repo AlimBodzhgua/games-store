@@ -1,12 +1,18 @@
-import { useState, useEffect, useRef, ChangeEvent } from 'react';
+import { useState, useEffect, useRef, ChangeEvent, FC } from 'react';
 import { useAction } from '@/hooks/useAction';
 import { useDebounce } from '@/hooks/useDebounce';
+import { Hotkey } from '@/components/UI/Hotkey/Hotkey';
 import { useAppSelector } from '@/hooks/redux';
 import { GamesService } from '@/Services/GamesService';
-
+import classnames from 'classnames';
 import classes from './search-bar.module.css';
 
-export const SearchBar = () => {
+interface SearchBarProps {
+	className?: string;
+}
+
+export const SearchBar: FC<SearchBarProps> = (props) => {
+	const { className } = props;
 	const [value, setValue] = useState('');
 	const { page, games } = useAppSelector((state) => state.games);
 
@@ -48,7 +54,7 @@ export const SearchBar = () => {
 	};
 	
 	return (
-		<div className={classes.searchBar}>
+		<div className={classnames(classes.searchBar, className)}>
 			<input
 				ref={inputRef}
 				value={value}
@@ -57,10 +63,11 @@ export const SearchBar = () => {
 				type='text'
 				placeholder='Search'
 			/>
-			<div className={classes.hotkey}>
-				<div className={classes.hotkey__item}>alt</div>
+
+			<div className={classes.hotkeys}>
+				<Hotkey>alt</Hotkey>
 				<span>+</span>
-				<div className={classes.hotkey__item}>enter</div>
+				<Hotkey>enter</Hotkey>
 			</div>
 		</div>
 	);

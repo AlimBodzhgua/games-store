@@ -6,15 +6,17 @@ import { useAppSelector } from '@/hooks/redux';
 import { PlatformsIconList } from './PlatformsIcon/PlatformsIconList';
 import defaultImage from '@/assets/default-image.jpg';
 import type { Game } from '@/types/game';
+import classnames from 'classnames';
 
 import classes from './games.module.css';
 
 interface GameItemProps {
 	game: Game;
+	className?: string;
 }
 
 export const GameItem: FC<GameItemProps> = (props) => {
-	const { game } = props;
+	const { game, className  } = props;
 	const [platformsIcon, setPlatformsIcon] = useState<string[]>([]);
 	const { addGameAction, removeGameAction } = useAction();
 	const { isAuth, data } = useAppSelector((state) => state.user);
@@ -61,7 +63,7 @@ export const GameItem: FC<GameItemProps> = (props) => {
 	const removeGame = () => removeGameAction(game.id);
 
 	return (
-		<li onClick={handleClick} className={classes.item}>
+		<li onClick={handleClick} className={classnames(classes.GamesItem, className)}>
 			<img
 				src={game.background_image ? game.background_image : defaultImage}
 				className={classes.logo}

@@ -1,5 +1,5 @@
 
-.games__list {
+.GamesList {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
@@ -8,7 +8,7 @@
 	width: 100%;
 }
 
-.item {
+.GamesItem {
 	height: 360px;
 	width: 345px;
 	margin: 10px;
@@ -25,12 +25,12 @@
 }
 
 
-.item:hover {
+.GamesItem:hover {
 	transform: scale(1.03);
 	cursor: pointer;
 }
 
-.item:hover .add {
+.GamesItem:hover .add {
 	transform: translateX(0);
 }
 
@@ -87,5 +87,43 @@
 	transform: translateX(35px);
 	transition: transform .3s linear;
 	cursor: pointer;
-} 
+}
 
+.loadingIcons {
+	margin: 10px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.loadingPlatforms {
+	display: flex;
+	gap: 10px;
+}
+
+.error {
+	margin: 18px 0;
+	border: 1px solid grey;
+	border-radius: 4px;
+	padding: 18px 10px;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.errorTitle {
+	font-size: 34px;
+	margin-bottom: 12px;
+}
+
+.errorSubtitle {
+	font-size: 15px;
+	margin-bottom: 12px;
+}
+
+.icon {
+	fill: red;
+	width: 4rem;
+	height: 4rem;
+}

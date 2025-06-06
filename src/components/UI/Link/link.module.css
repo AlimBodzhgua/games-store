@@ -8,6 +8,14 @@
 	}
 }
 
+.clean {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
 .plain {
 	text-decoration: none;
 

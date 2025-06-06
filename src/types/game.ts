@@ -45,6 +45,7 @@ export type Tag = {
 export type Genre = {
 	id: number;
 	name: string;
+	img: string;
 }
 
 export enum GameActionTypes {

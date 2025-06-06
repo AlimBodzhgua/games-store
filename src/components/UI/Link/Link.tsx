@@ -3,7 +3,7 @@ import { LinkProps, NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import classes from './link.module.css';
 
-type LinkVariant = 'plain' | 'underline';
+type LinkVariant = 'plain' | 'underline' | 'clean';
 type LinkSize = 'sm' | 'md' | 'lg';
 
 interface AppLinkProps extends LinkProps {
@@ -24,7 +24,7 @@ export const Link: FC<AppLinkProps> = memo((props) => {
 
 	return (
 		<NavLink
-			className={classnames(classes.Link, className, classes[variant], classes[size])}
+			className={classnames(classes.Link, classes[variant], classes[size], className)}
 			{...otherProps}
 		>
 			{children}

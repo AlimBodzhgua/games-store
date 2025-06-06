@@ -2,39 +2,31 @@
 .GenresList {
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-start;
 	gap: 2px;
 }
 
-.item {
+.GenreItem {
 	color: #fff;
 	font-size: 16px;
 
 	margin-bottom: 8px;
 }
 
-.item__link {
-	color: inherit;
-	font-size: 16px;
-	font-weight: 600;
-	text-decoration: none;
-	text-align: left;
-
-	background: none;
-	border: none;
-	padding: 0 3px;
-
-	transition: 
-		opacity .3s ease-out,
-		transform .3s ease-out,
-		border .3s ease-out
-}
-
-.item__link:hover {
-	opacity: .7;
-	cursor: pointer;
+.link {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .active {
-	transform: translateX(20px);
-	border-left: 2px solid white;
+	transform: translateX(10px);
+}
+
+.img {
+	width: 32px;
+	height: 32px;
+	border-radius: 5px;
+	margin-right: 4px;
+	object-fit: cover;
 }

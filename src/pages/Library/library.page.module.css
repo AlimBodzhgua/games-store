@@ -1,0 +1,44 @@
+.page {
+    width: 100%;
+
+    padding: 20px 30px;
+	display: flex;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.details {
+    width: 85%;
+    padding: 30px 30px;
+    border: 1px solid #fff;
+}
+
+.title {
+    font-size: 38px;
+}
+
+.empty {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 140px;
+}
+
+.emptyTitle {
+	margin-bottom: 10px;
+}
+
+.emptyInfo {
+	margin-bottom: 10px;
+}
+
+.icon {
+	width: 4.5rem;
+	height: 4.5rem;
+}

@@ -1,10 +1,9 @@
 import { RegisterForm } from '@/components/AuthForms/RegisterForm';
-
-import classes from './pages.module.css';
+import classes from './register.page.module.css';
 
 const RegisterPage = () => {
 	return (
-		<div className={`${classes.page} ${classes.pageCentered}`}>
+		<div className={classes.RegisterPage}>
 			<RegisterForm />
 		</div>
 	);

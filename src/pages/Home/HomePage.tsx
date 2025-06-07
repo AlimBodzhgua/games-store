@@ -9,7 +9,7 @@ import { capitalizeFirstLetter } from '@/utils/utils';
 import { useAppSelector } from '@/hooks/redux';
 import { useGames } from '@/hooks/useGames';
 
-import classes from './pages.module.css';
+import classes from './home.page.module.css';
 
 export default function HomePage() {
 	const { genre } = useAppSelector((state) => state.games);
@@ -25,12 +25,12 @@ export default function HomePage() {
 	}, [params]);
 
 	return (
-		<div className={`${classes.page} ${classes.pageFlex}`}>
+		<div className={classes.HomePage}>
 			<Sidebar />
-			<div className={classes.page__home}>
+			<div className={classes.main}>
 				<Header />
 				{genre && (
-					<h2 className={classes.page__title}>
+					<h2 className={classes.title}>
 						{capitalizeFirstLetter(genre)} Games
 					</h2>
 				)}

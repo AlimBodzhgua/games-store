@@ -1,10 +1,10 @@
 import { LoginForm } from '@/components/AuthForms/LoginForm';
-import classes from './pages.module.css';
+import classes from './login.pages.module.css';
 
 export const LoginPage = () => {
 
 	return (
-		<div className={`${classes.page} ${classes.pageCentered}`}>
+		<div className={classes.LoginPage}>
 			<LoginForm />
 		</div>
 	);

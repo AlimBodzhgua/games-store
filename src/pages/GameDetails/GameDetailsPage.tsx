@@ -8,7 +8,7 @@ import { GameDetailsInfo } from '@/components/GameDetailsInfo/GameDetailsInfo';
 import { GameScreenshots } from '@/components/GameScreenshots/GameScreenshots';
 import type { GameDetails } from '@/types/game';
 
-import classes from './pages.module.css';
+import classes from './game.page.module.css';
 
 export default function GameDetailsPage() {
 	const params = useParams();
@@ -31,9 +31,9 @@ export default function GameDetailsPage() {
 	}, [gameDetails]);
 
 	return (
-		<div className={`${classes.page} ${classes.pageFlex}`}>
+		<div className={classes.GameDetailsPage}>
 			<Sidebar />
-			<div className={classes.page__details}>
+			<div className={classes.main}>
 				{isLoading ? (
 					<RotatingLines
 						strokeColor='grey'

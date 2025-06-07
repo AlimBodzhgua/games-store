@@ -1,0 +1,12 @@
+.GameDetailsPage {
+    width: 100%;
+
+    padding: 20px 30px;
+	display: flex;
+}
+
+.main {
+    width: 85%;
+    padding: 30px 30px;
+    border: 1px solid #fff;
+}

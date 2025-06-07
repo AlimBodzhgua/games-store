@@ -1,12 +1,12 @@
 import React from 'react';
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage';
 
-const HomePage = React.lazy(() => import('@/pages/HomePage'));
-const GameDetailsPage = React.lazy(() => import('@/pages/GameDetailsPage'));
+const HomePage = React.lazy(() => import('@/pages/Home/HomePage'));
+const GameDetailsPage = React.lazy(() => import('@/pages/GameDetails/GameDetailsPage'));
 const LibraryPage = React.lazy(() => import('@/pages/Library/LibraryPage'));
 const ProfilePage = React.lazy(() => import('@/pages/Profile/ProfilePage'));
-const RegisterPage = React.lazy(() => import('@/pages/RegisterPage'));
-const LoginPage = React.lazy(() => import('@/pages/LoginPage'));
+const RegisterPage = React.lazy(() => import('@/pages/Register/RegisterPage'));
+const LoginPage = React.lazy(() => import('@/pages/Login/LoginPage'));
 
 export const routes = [
 	{ path: '', component: <HomePage /> },

@@ -12,7 +12,7 @@ export const SidebarHeader: FC = memo(() => {
 
 	return sidebarHeaderList.map((item) => (
 		<Link
-			to='/'
+			to={item.path}
 			onClick={handleClick}
 			className={classes.link}
 			key={item.path}

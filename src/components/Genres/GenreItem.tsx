@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useAppSelector } from '@/hooks/redux';
-import { selectGenre } from '@/redux/reducers/games/selectors';
+import { selectGenre } from '@/redux/selectors/gamesSelectors';
 import { Link } from '@/components/UI/Link/Link';
 import type { Genre } from '@/types/game';
 import classnames from 'classnames';

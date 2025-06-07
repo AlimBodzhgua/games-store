@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useAction } from '@/hooks/useAction';
 import { getFirstWord } from '@/utils/utils';
 import { useAppSelector } from '@/hooks/redux';
-import { selectUserData } from '@/redux/reducers/user/selectors';
+import { selectUserData } from '@/redux/selectors/userSelectors';
 import type { Game } from '@/types/game';
 import defaultImage from '@/assets/default-image.jpg';
 import classnames from 'classnames';

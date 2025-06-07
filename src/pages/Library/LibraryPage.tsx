@@ -9,7 +9,7 @@ import {
 	selectUserData,
 	selectUserError,
 	selectUserIsLoading,
-} from '@/redux/reducers/user/selectors';
+} from '@/redux/selectors/userSelectors';
 import BoxIcon from '@/assets/icons/box.svg';
 import classnames from 'classnames';
 import classes from './library.page.module.css';

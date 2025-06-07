@@ -31,30 +31,28 @@ export const userReducer = (state = initialState, action: UserAction) => {
 		case UserActionTypes.CHANGE_IMAGE:
 			return { ...state, data: { ...state.data, img: action.payload } };
 		case UserActionTypes.ADD_GAME:
-			() => {
-				if (state.data) {
-					return {
-						...state,
-						data: {
-							...state.data,
-							library: [...state.data?.library, action.payload],
-						},
-					};
-				}
+			if (!state.data) {
+				return state;
+			}
+			return {
+				...state,
+				data: {
+					...state.data,
+					library: [...state.data?.library, action.payload],
+				},
 			};
 		case UserActionTypes.REMOVE_GAME:
-			() => {
-				if (state.data) {
-					return {
-						...state,
-						data: {
-							...state.data,
-							library: state.data.library.filter(
-								(game) => game.id != action.payload,
-							),
-						},
-					};
-				}
+			if (!state.data) {
+				return state;
+			}
+			return {
+				...state,
+				data: {
+					...state.data,
+					library: state.data.library.filter(
+						(game) => game.id != action.payload,
+					),
+				},
 			};
 		case UserActionTypes.CLEAR_LIBRARY:
 			return { ...state, data: { ...state.data, library: [] } };

@@ -3,11 +3,12 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useAction } from '@/hooks/useAction';
 import { getFirstWord } from '@/utils/utils';
 import { useAppSelector } from '@/hooks/redux';
-import { PlatformsIconList } from './PlatformsIcon/PlatformsIconList';
-import defaultImage from '@/assets/default-image.jpg';
+import { selectUserData } from '@/redux/reducers/user/selectors';
 import type { Game } from '@/types/game';
+import defaultImage from '@/assets/default-image.jpg';
 import classnames from 'classnames';
 
+import { PlatformsIconList } from './PlatformsIcon/PlatformsIconList';
 import classes from './games.module.css';
 
 interface GameItemProps {
@@ -19,15 +20,15 @@ export const GameItem: FC<GameItemProps> = (props) => {
 	const { game, className  } = props;
 	const [platformsIcon, setPlatformsIcon] = useState<string[]>([]);
 	const { addGameAction, removeGameAction } = useAction();
-	const { isAuth, data } = useAppSelector((state) => state.user);
+	const userData = useAppSelector(selectUserData);
 
 	const navigate = useNavigate();
 	const location = useLocation();
 
 	const isInLibrary = (checkGame: Game) => {
-		if (isAuth && data) {
+		if (userData) {
 			let inLibrary = false;
-			data.library.forEach((game) => {
+			userData.library.forEach((game) => {
 				if (game.id === checkGame.id) {
 					inLibrary = true;
 				}
@@ -53,14 +54,16 @@ export const GameItem: FC<GameItemProps> = (props) => {
 
 	const addGame = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.stopPropagation();
-		if (!isAuth) {
+		if (!userData) {
 			return alert('You should register or login in account');
 		}
-	
 		addGameAction(game);
 	};
 
-	const removeGame = () => removeGameAction(game.id);
+	const removeGame = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.stopPropagation();
+		removeGameAction(game.id);
+	}
 
 	return (
 		<li onClick={handleClick} className={classnames(classes.GamesItem, className)}>
@@ -78,7 +81,11 @@ export const GameItem: FC<GameItemProps> = (props) => {
 					<div className={classes.metacritic}>{game.metacritic}</div>
 				)}
 			</div>
-			{location.pathname === '/' && (
+			{location.pathname === '/library' ? (
+				<button className={classes.add} onClick={removeGame}>
+					-
+				</button>
+			) : (
 				<>
 					{isInLibrary(game) ? (
 						<button className={classes.add} disabled>
@@ -90,11 +97,6 @@ export const GameItem: FC<GameItemProps> = (props) => {
 						</button>
 					)}
 				</>
-			)}
-			{location.pathname === '/library' && (
-				<button className={classes.add} onClick={removeGame}>
-					-
-				</button>
 			)}
 		</li>
 	);

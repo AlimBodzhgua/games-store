@@ -4,7 +4,7 @@ import { useAction } from '@/hooks/useAction';
 import { UserService } from '@/Services/UserService';
 import { USER_LOCALSTORAGE_KEY } from '@/constants/localsrorage';
 import { AppRouter } from '@/router/AppRouter';
-import { useAppSelector } from './hooks/redux';
+import { useAppSelector } from '@/hooks/redux';
 import { User } from './types/user';
 import './App.css';
 

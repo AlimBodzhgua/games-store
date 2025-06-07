@@ -1,4 +1,4 @@
-import { UserService }from '@/Services/UserService';
+import { UserService }from '@/services/UserService';
 import { USER_LOCALSTORAGE_KEY } from '@/constants/localsrorage';
 import type { Game } from '@/types/game';
 import {

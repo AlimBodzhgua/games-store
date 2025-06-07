@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAction } from './useAction';
-import { GamesService } from '@/Services/GamesService';
+import { GamesService } from '@/services/GamesService';
 import { useAppSelector } from './redux';
 
 export const useGames = () => {

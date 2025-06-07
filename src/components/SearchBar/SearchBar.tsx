@@ -3,7 +3,7 @@ import { useAction } from '@/hooks/useAction';
 import { useDebounce } from '@/hooks/useDebounce';
 import { Hotkey } from '@/components/UI/Hotkey/Hotkey';
 import { useAppSelector } from '@/hooks/redux';
-import { GamesService } from '@/Services/GamesService';
+import { GamesService } from '@/services/GamesService';
 import classnames from 'classnames';
 import classes from './search-bar.module.css';
 

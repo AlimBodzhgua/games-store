@@ -3,7 +3,7 @@ import { RotatingLines } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import { useFetching } from '@/hooks/useFetching';
 import { Sidebar } from '@/components/Sidebar/Sidebar';
-import { GamesService } from '@/Services/GamesService';
+import { GamesService } from '@/services/GamesService';
 import { GameDetailsInfo } from '@/components/GameDetailsInfo/GameDetailsInfo';
 import { GameScreenshots } from '@/components/GameScreenshots/GameScreenshots';
 import type { GameDetails } from '@/types/game';

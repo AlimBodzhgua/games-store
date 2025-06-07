@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useAction } from '@/hooks/useAction';
-import { UserService } from '@/Services/UserService';
+import { UserService } from '@/services/UserService';
 import { Sidebar } from '@/components/Sidebar/Sidebar';
 import { GamesList } from '@/components/Games/GamesList';
 import { useAppSelector } from '@/hooks/redux';

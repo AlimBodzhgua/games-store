@@ -17,10 +17,16 @@ export type Game = {
 	updated: string; //date
 	esrb_rating: object;	
 	platforms: Platform[];
+	genres: Genre[];
+	short_screenshots: Screenshot[]; 
+}
+
+export type Screenshot = {
+	id: number;
+	image: string;
 }
 
 export interface GameDetails extends Game {
-	genres: Genre[];
 	tags: Tag[];
 	developers: Developrs[];
 	description: string;

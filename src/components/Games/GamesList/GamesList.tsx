@@ -1,12 +1,13 @@
+import { FC, memo } from 'react';
+import { Button } from '@/components/UI/Button/Button';
 import type { Game } from '@/types/game';
-import { GameItem } from './GameItem';
-import classes from './games.module.css';
-import { FC } from 'react';
-import { Skeleton } from '../UI/Skeleton/Skeleton';
 import ErrorIcon from '@/assets/icons/error.svg';
 import classnames from 'classnames';
-import { Button } from '../UI/Button/Button';
+
 import { GamesListSkeleton } from './GamesListSkeleton';
+import classes from './GameList.module.css';
+
+import { GameItem } from '../GameItem/GameItem';
 
 interface GamesListProps {
 	games: Game[];
@@ -15,7 +16,7 @@ interface GamesListProps {
 	className?: string;
 }
 
-export const GamesList: FC<GamesListProps> = (props) => {
+export const GamesList: FC<GamesListProps> = memo((props) => {
 	const {
 		games,
 		isLoading,
@@ -28,7 +29,7 @@ export const GamesList: FC<GamesListProps> = (props) => {
 	if (error) {
 		return (
 			<div className={classes.error}>
-				<ErrorIcon className={classes.icon}/>
+				<ErrorIcon className={classes.errorIcon}/>
 				<h1 className={classes.errorTitle}>500</h1>
 				<h1 className={classes.errorTitle}>Oops! Internal Server Error</h1>
 				<h3 className={classes.errorSubtitle}>Error fetching data, reload the page or try it later</h3>
@@ -48,4 +49,4 @@ export const GamesList: FC<GamesListProps> = (props) => {
 			))}
 		</ul>
 	);
-}
+});

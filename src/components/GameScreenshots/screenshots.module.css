@@ -1,23 +1,6 @@
 
-.screenshots__section {
-	text-align: left;
-}
-
-.button {
-	border: none;
-	color: #fff;
-	background-color: #202020;
-
-	color: #e6e6e6;
-    font-size: 15px;
-    font-weight: 600;
-
-    padding: 10px 15px;
-    margin-bottom: 10px;
-}
-
-.button:hover {
-	cursor: pointer;
+.GameScreenshotsButton {
+	margin-bottom: 20px;
 }
 
 .screenshots {
@@ -27,8 +10,6 @@
 }
 
 .screenshot {
-	width: 230px;
-	height: 165px;
 	object-fit: cover;
 	margin: 5px;
 	cursor: pointer;

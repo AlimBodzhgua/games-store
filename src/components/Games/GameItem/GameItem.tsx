@@ -4,12 +4,16 @@ import { useAction } from '@/hooks/useAction';
 import { getFirstWord } from '@/utils/utils';
 import { useAppSelector } from '@/hooks/redux';
 import { selectUserData } from '@/redux/selectors/userSelectors';
+import { useHover } from '@/hooks/useHover';
+import { Button } from '@/components/UI/Button/Button';
+import { ScreenshotsList } from '@/components/GameScreenshots/ScreenshotsList';
 import type { Game } from '@/types/game';
 import defaultImage from '@/assets/default-image.jpg';
 import classnames from 'classnames';
 
-import { PlatformsIconList } from './PlatformsIcon/PlatformsIconList';
-import classes from './games.module.css';
+import { PlatformsIconList } from '../PlatformsIcon/PlatformsIconList';
+import { GameItemGenresList } from '../GameItemGenresList/GameItemGenresList';
+import classes from './GameItem.module.css';
 
 interface GameItemProps {
 	game: Game;
@@ -19,6 +23,8 @@ interface GameItemProps {
 export const GameItem: FC<GameItemProps> = (props) => {
 	const { game, className  } = props;
 	const [platformsIcon, setPlatformsIcon] = useState<string[]>([]);
+	const { isHover, hoverProps } = useHover();;
+
 	const { addGameAction, removeGameAction } = useAction();
 	const userData = useAppSelector(selectUserData);
 
@@ -65,34 +71,67 @@ export const GameItem: FC<GameItemProps> = (props) => {
 		removeGameAction(game.id);
 	}
 
+	const onContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
+		e.stopPropagation();
+	}
+
 	return (
-		<li onClick={handleClick} className={classnames(classes.GamesItem, className)}>
+		<li
+			onClick={handleClick}
+			className={classnames(classes.GamesItem, className)}
+			{...hoverProps}
+		>
 			<img
 				src={game.background_image ? game.background_image : defaultImage}
-				className={classes.logo}
+				className={classes.img}
 			/>
 			<div className={classes.info}>
-				{platformsIcon.length > 0 && (
-					<PlatformsIconList platformsIcon={platformsIcon} />
-				)}
+				<div className={classes.platformsAndRating}>
+					{platformsIcon.length > 0 && (
+						<PlatformsIconList platformsIcon={platformsIcon} />
+					)}
+					{game.metacritic && (
+						<div className={classes.metacritic}>{game.metacritic}</div>
+					)}
+				</div>
 				<h3 className={classes.title}>{game.name}</h3>
 				<div className={classes.date}>Released: {game.released}</div>
-				{game.metacritic && (
-					<div className={classes.metacritic}>{game.metacritic}</div>
+
+				{isHover && (
+					<div className={classes.expandedInfo} onClick={onContentClick}>
+
+						<div className={classes.genresWrapper}>
+							<h3>Genres:</h3> 
+							<GameItemGenresList genres={game.genres}/>
+						</div>
+						
+						<ScreenshotsList
+							screenshots={game.short_screenshots.slice(0, -1)}
+							screenWidth='80px'
+							screenHeight='50px'
+						/>
+						<Button
+							size='sm'
+							className={classes.detailsBtn}
+						>
+							Details
+							<span>&gt;</span>
+						</Button>
+					</div>
 				)}
 			</div>
 			{location.pathname === '/library' ? (
-				<button className={classes.add} onClick={removeGame}>
+				<button className={classes.actionBtn} onClick={removeGame}>
 					-
 				</button>
 			) : (
 				<>
 					{isInLibrary(game) ? (
-						<button className={classes.add} disabled>
+						<button className={classes.actionBtn} disabled>
 							&#x2714;
 						</button>
 					) : (
-						<button className={classes.add} onClick={addGame}>
+						<button className={classes.actionBtn} onClick={addGame}>
 							+
 						</button>
 					)}

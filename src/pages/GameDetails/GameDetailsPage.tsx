@@ -5,7 +5,7 @@ import { useFetching } from '@/hooks/useFetching';
 import { Sidebar } from '@/components/Sidebar/Sidebar';
 import { GamesService } from '@/services/GamesService';
 import { GameDetailsInfo } from '@/components/GameDetailsInfo/GameDetailsInfo';
-import { GameScreenshots } from '@/components/GameScreenshots/GameScreenshots';
+import { GameScreenshotsButton } from '@/components/GameScreenshots/GameScreenshotsButton';
 import type { GameDetails } from '@/types/game';
 
 import classes from './game.page.module.css';
@@ -47,7 +47,7 @@ export default function GameDetailsPage() {
 						Object.keys(gameDetails!).length && (
 							<>
 								<GameDetailsInfo game={gameDetails} />
-								<GameScreenshots id={gameDetails.id} />
+								<GameScreenshotsButton id={gameDetails.id} />
 							</>
 						)
 					)

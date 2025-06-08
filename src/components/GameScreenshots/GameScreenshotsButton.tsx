@@ -4,12 +4,13 @@ import { GamesService } from '@/services/GamesService';
 import { ScreenshotsList } from './ScreenshotsList';
 
 import classes from './screenshots.module.css';
+import { Button } from '../UI/Button/Button';
 
 interface GameScreenshotsProps {
 	id: number;
 }
 
-export const GameScreenshots: FC<GameScreenshotsProps> = ({ id }) => {
+export const GameScreenshotsButton: FC<GameScreenshotsProps> = ({ id }) => {
 	const [showScreenshots, setShowScreenshots] = useState(false);
 	const [screenshots, setScreenshots] = useState([]);
 	const { fetching: fetchScreenshots } = useFetching(async () => {
@@ -23,15 +24,17 @@ export const GameScreenshots: FC<GameScreenshotsProps> = ({ id }) => {
 	};
 
 	return (
-		<div className={classes.screenshots__section}>
-			<button onClick={handleClick} className={classes.button}>
-				{showScreenshots ? '- ' : '+ '} Show screenshots
-			</button>
+		<>
+			<Button onClick={handleClick} className={classes.GameScreenshotsButton}>
+				Show screenshots {showScreenshots ? '- ' : '+ '}
+			</Button>
 			{showScreenshots && (
-				<div className={classes.screenshots}>
-					{screenshots.length && <ScreenshotsList screenshots={screenshots} />}
-				</div>
+				<ScreenshotsList
+					screenshots={screenshots}
+					screenWidth='230px'
+					screenHeight='165px'
+				/>
 			)}
-		</div>
+		</>
 	);
 };

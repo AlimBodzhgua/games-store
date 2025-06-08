@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAction } from '@/hooks/useAction';
-import { GamesList } from '@/components/Games/GamesList';
+import { GamesList } from '@/components/Games';
 import { Sidebar } from '@/components/Sidebar/Sidebar';
 import { Header } from '@/components/Header/Header';
 import { Pagination } from '@/components/Pagination/Pagination';

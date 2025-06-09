@@ -6,6 +6,7 @@ interface SkeletonProps {
 	width?: string;
 	height?: string;
 	radius?: string;
+	margin?: string;
 	className?: string;
 }
 
@@ -14,12 +15,14 @@ export const Skeleton: FC<SkeletonProps> = (props) => {
 		width,
 		height,
 		radius,
+		margin,
 		className,
 	} = props;
 
 	const style: CSSProperties = {
 		width,
 		height,
+		margin,
 		borderRadius: radius,
 	};
 

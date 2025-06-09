@@ -1,10 +1,9 @@
 import { FC, useState } from 'react';
-import { useFetching } from '@/hooks/useFetching';
-import { GamesService } from '@/services/GamesService';
+import { Button } from '@/components/UI/Button/Button';
+import { useGameScreenshots } from '@/hooks/useGameScreenshots';
+import { Skeleton } from '@/components/UI/Skeleton/Skeleton';
 import { ScreenshotsList } from './ScreenshotsList';
-
 import classes from './screenshots.module.css';
-import { Button } from '../UI/Button/Button';
 
 interface GameScreenshotsProps {
 	id: number;
@@ -12,11 +11,7 @@ interface GameScreenshotsProps {
 
 export const GameScreenshotsButton: FC<GameScreenshotsProps> = ({ id }) => {
 	const [showScreenshots, setShowScreenshots] = useState(false);
-	const [screenshots, setScreenshots] = useState([]);
-	const { fetching: fetchScreenshots } = useFetching(async () => {
-		const response = await GamesService.getGameScreenshots(id);
-		setScreenshots(response.results);
-	});
+	const { fetchScreenshots, screenshots, isLoading } = useGameScreenshots(id);
 
 	const handleClick = () => {
 		setShowScreenshots(!showScreenshots);
@@ -28,6 +23,13 @@ export const GameScreenshotsButton: FC<GameScreenshotsProps> = ({ id }) => {
 			<Button onClick={handleClick} className={classes.GameScreenshotsButton}>
 				Show screenshots {showScreenshots ? '- ' : '+ '}
 			</Button>
+			{isLoading && (
+				<div className={classes.screenshots}>
+					{Array(6).fill(0).map((_, index) => (
+						<Skeleton key={index} width='230px' height='165px' margin='5px'/>
+					))}
+				</div>
+			)}
 			{showScreenshots && (
 				<ScreenshotsList
 					screenshots={screenshots}

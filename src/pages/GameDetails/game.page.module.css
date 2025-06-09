@@ -10,3 +10,29 @@
     padding: 30px 30px;
     border: 1px solid #fff;
 }
+
+.error {
+	padding: 18px 10px;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.errorIcon {
+	fill: red;
+	width: 4rem;
+	height: 4rem;
+}
+
+.errorTitle {
+	font-size: 34px;
+	margin-bottom: 12px;
+}
+
+.errorSubtitle {
+	font-size: 15px;
+	margin-bottom: 12px;
+}

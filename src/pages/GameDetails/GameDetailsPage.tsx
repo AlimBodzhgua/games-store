@@ -1,34 +1,30 @@
-import { useState, useEffect } from 'react';
 import { RotatingLines } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
-import { useFetching } from '@/hooks/useFetching';
 import { Sidebar } from '@/components/Sidebar/Sidebar';
-import { GamesService } from '@/services/GamesService';
 import { GameDetailsInfo } from '@/components/GameDetailsInfo/GameDetailsInfo';
 import { GameScreenshotsButton } from '@/components/GameScreenshots/GameScreenshotsButton';
-import type { GameDetails } from '@/types/game';
-
+import { useGameDetails } from '@/hooks/useGameDetails';
+import { Button } from '@/components/UI/Button/Button';
+import ErrorIcon from '@/assets/icons/error.svg';
 import classes from './game.page.module.css';
 
 export default function GameDetailsPage() {
 	const params = useParams();
-	const [gameDetails, setGameDetails] = useState<GameDetails | undefined>(undefined);
-	const { fetching: fetchGameDetails, isLoading, error} = useFetching(async () => {
-		if (params.id) {
-			const game = await GamesService.getGameDetails(+params.id);
-			setGameDetails(game);
-		}
-	});
+	const { gameDetails, isLoading, error } = useGameDetails(params.id ? +params.id : 0);
+	
+	const onReload = () => location.reload();
 
-	useEffect(() => {
-		fetchGameDetails();
-	}, []);
-
-	useEffect(() => {
-		if (gameDetails) {
-			GamesService.getGameScreenshots(gameDetails.id);
-		}
-	}, [gameDetails]);
+	if (error) {
+		return (
+			<div className={classes.error}>
+				<ErrorIcon className={classes.errorIcon}/>
+				<h1 className={classes.errorTitle}>500</h1>
+				<h1 className={classes.errorTitle}>Oops! Internal Server Error</h1>
+				<h3 className={classes.errorSubtitle}>Error fetching data, reload the page or try it later</h3>
+				<Button theme='white' onClick={onReload}>reload</Button>
+			</div>
+		)
+	}
 
 	return (
 		<div className={classes.GameDetailsPage}>
@@ -42,16 +38,12 @@ export default function GameDetailsPage() {
 						width='55'
 						visible={true}
 					/>
-				) : (
-					gameDetails && (
-						Object.keys(gameDetails!).length && (
-							<>
-								<GameDetailsInfo game={gameDetails} />
-								<GameScreenshotsButton id={gameDetails.id} />
-							</>
-						)
-					)
-				)}
+				) : (gameDetails && (
+					<>
+						<GameDetailsInfo game={gameDetails} />
+						<GameScreenshotsButton id={gameDetails.id} />
+					</>
+				))}
 			</div>
 		</div>
 	);

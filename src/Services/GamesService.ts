@@ -1,6 +1,9 @@
 import axios from 'axios';
-import type { Game, GameDetails } from '@/types/game';
-import { transformGamesResponseData } from '@/utils/utils';
+import type { Game, GameDetails, Screenshot } from '@/types/game';
+import {
+	transformGamesResponseData,
+	transformGameDetailsResponseData,
+} from '@/utils/transformGamesResponseData';
 import { gamesApi } from '@/API/axios';
 
 export class GamesService {
@@ -23,13 +26,13 @@ export class GamesService {
 
 	static async getGameDetails(id: number): Promise<GameDetails> {
 		const response = await gamesApi.get(`games/${id}`);
-		const game = transformGamesResponseData(response.data) as GameDetails;
+		const game = transformGameDetailsResponseData(response.data) as GameDetails;
 		return game;
 	}
 
-	static async getGameScreenshots(id: number) {
+	static async getGameScreenshots(id: number): Promise<Screenshot[]> {
 		const response = await gamesApi.get(`games/${id}/screenshots`);
-		return response.data;
+		return response.data.results;
 	}
 
 	static async getGenres() {

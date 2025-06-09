@@ -1,14 +1,17 @@
 import { FC, ReactNode, useEffect } from 'react';
+import { Portal } from '@/components/UI/Portal/Portal';
+import { Overlay } from '@/components/UI/Overlay/Overlay';
 import classnames from 'classnames';
-import { Portal } from '../Portal/Portal';
-import { Overlay } from '../Overlay/Overlay';
 import classes from './modal.module.css';
+
+type ModalPaddingSize = 'sm' | 'md' | 'lg'; 
 
 interface ModalProps {
 	isOpen: boolean;
 	onClose: () => void;
 	children: ReactNode;
 	className?: string;
+	paddingSize: ModalPaddingSize;
 	withCloseButton?: boolean;
 }
 
@@ -18,6 +21,7 @@ export const Modal: FC<ModalProps> = (props) => {
 		onClose,
 		children,
 		withCloseButton = true,
+		paddingSize = 'lg',
 		className,
 	} = props;
 
@@ -48,7 +52,7 @@ export const Modal: FC<ModalProps> = (props) => {
 			>
 				<Overlay>
 					<div
-						className={classnames(classes.content, className)}
+						className={classnames(classes.content, className, classes[paddingSize])}
 						onClick={onContentClick}
 					>
 						{children}

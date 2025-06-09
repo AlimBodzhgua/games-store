@@ -29,11 +29,42 @@
 	padding: 20px;
 	position: relative;
 }
+.sm {
+	padding: 4px;
+
+	.closeBtn {
+		top: -14px;
+		right: -12px;
+		background: rgb(158, 158, 158);
+		border-radius: 50%;
+		padding: 1px 5px;
+
+		color: #dedede;
+	}
+}
+
+.md {
+	padding: 10px;
+
+	.closeBtn {
+		top: -12px;
+		right: -10px;
+		background: rgb(158, 158, 158);
+		border-radius: 50%;
+		padding: 1px 5px;
+
+		color: #dedede;
+	}
+}
+
+.lg {
+	padding: 20px;
+}
 
 .closeBtn {
 	position: absolute;
-	top: 4px;
-	right: 8px;
+	top: 3px;
+	right: 7px;
 
 	background: none;
 	border: none;

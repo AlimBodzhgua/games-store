@@ -43,7 +43,13 @@ export const ScreenshotsList: FC<ScreenshotsListProps> = (props) => {
 					/>
 				))}
 			</div>
-			<Modal isOpen={isOpen} onClose={onCloseModal} className={classes.modal}>
+			<Modal
+				isOpen={isOpen}
+				onClose={onCloseModal}
+				className={classes.modal}
+				withCloseButton={true}
+				paddingSize='sm'
+			>
 				<img src={imageRef.current} className={classes.screenshot__opened} />
 			</Modal>
 		</>

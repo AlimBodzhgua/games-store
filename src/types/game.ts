@@ -19,6 +19,7 @@ export type Game = {
 	platforms: Platform[];
 	genres: Genre[];
 	short_screenshots: Screenshot[]; 
+	stores: Store[];
 }
 
 export type Screenshot = {
@@ -26,10 +27,16 @@ export type Screenshot = {
 	image: string;
 }
 
+export type Store = {
+	id: number;
+	name: string;
+}
+
 export interface GameDetails extends Omit<Game, 'short_screenshots'> {
 	tags: Tag[];
 	developers: Developrs[];
 	description: string;
+	//stores: Store[];
 }
 
 export type Developrs = {

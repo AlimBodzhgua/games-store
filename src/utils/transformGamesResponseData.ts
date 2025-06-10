@@ -1,4 +1,4 @@
-import type { Game, GameDetails, Platform } from '@/types/game';
+import type { Game, GameDetails, Platform, Store } from '@/types/game';
 
 type ResponsePlatform = {
 	platforms: {
@@ -7,8 +7,21 @@ type ResponsePlatform = {
 	}[];
 };
 
-type GameResponse = Omit<Game, 'platforms'> & ResponsePlatform;
-type GameDetailsReponse = Omit<GameDetails, 'platforms'> & ResponsePlatform;
+type ResponseStore = {
+	stores: {
+		index: number;
+		store: Store;
+	}[]
+}
+
+type GameResponse = Omit<Game, 'platforms' | 'stores'> &
+	ResponsePlatform &
+	ResponseStore;
+
+type GameDetailsResponse = Omit<GameDetails, 'platforms' | 'stores'> &
+	ResponsePlatform &
+	ResponseStore;
+
 
 export const transformGamesResponseData = (
 	response: GameResponse | GameResponse[],
@@ -17,28 +30,32 @@ export const transformGamesResponseData = (
 		return response.map((game: GameResponse) => ({
 			...game,
 			platforms: game.platforms.map((p) => ({ ...p.platform })),
+			stores: game.stores.map((s) => ({ ...s.store })),
 		}));
 	}
 
 	return {
 		...response,
 		platforms: response.platforms.map((p) => p.platform),
+		stores: response.stores.map((s) => s.store),
 	};
 };
 
 export const transformGameDetailsResponseData = (
-	response: GameDetailsReponse | GameDetailsReponse[],
+	response: GameDetailsResponse | GameDetailsResponse[],
 ): GameDetails[] | GameDetails => {
-	
 	if (Array.isArray(response)) {
-		return response.map((game: GameDetailsReponse) => ({
+		return response.map((game: GameDetailsResponse) => ({
 			...game,
 			platforms: game.platforms.map((p) => ({ ...p.platform })),
+			stores: game.stores.map((s) => ({ ...s.store })),
 		}));
 	}
+
 	return {
 		...response,
 		platforms: response.platforms.map((p) => p.platform),
+		stores: response.stores.map((s) => s.store),
 	};
 };
 

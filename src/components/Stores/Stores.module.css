@@ -1,0 +1,38 @@
+.StoresList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.storeBtn {
+	color: hsla(0, 0%, 100%, .5);
+}
+
+.storeIcon {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: #6f6a6a;
+	margin-left: 5px;
+
+	transition: fill .2s linear;
+}
+
+.storeBtn:hover .storeIcon {
+	fill: #000000;
+}
+
+
+.googleIcon {
+	fill: #383838;
+	stroke: #6f6a6a;
+}
+
+.storeBtn:hover .googleIcon {
+	stroke: #000000;
+	fill: #ffffff;
+}
+
+.nintendoIcon {
+	width: 1.2rem;
+	height: 1.2rem;
+}

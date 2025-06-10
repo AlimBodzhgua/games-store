@@ -33,6 +33,12 @@
     margin-bottom: 15px;
 }
 
+.storeWrapper {
+	margin: 15px 0;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
 
 .text {
 	margin: 15px 0;
@@ -45,4 +51,3 @@
     letter-spacing: normal;
     white-space: pre-line;
 }
-

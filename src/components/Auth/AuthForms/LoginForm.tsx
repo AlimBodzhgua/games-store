@@ -4,6 +4,8 @@ import { useAction } from '@/hooks/useAction';
 import { InputPassword } from '@/components/UI/Input/InputPassword';
 import { Input } from '@/components/UI/Input/Input';
 import classes from './auth-forms.module.css';
+import { Button } from '@/components/UI/Button/Button';
+import { Link } from '@/components/UI/Link/Link';
 
 type LoginFormData = {
 	email: string;
@@ -34,7 +36,7 @@ export const LoginForm = () => {
 						message: 'email is required filed',
 					},
 				})}
-				className={classes.input__dark}
+				className={classes.input}
 				placeholder='Email'
 				type='email'
 			/>
@@ -46,21 +48,21 @@ export const LoginForm = () => {
 						message: 'password is required field',
 					},
 				})}
-				className={classes.input__dark}
+				className={classes.input}
 			/>
 			{errors.password && (
 				<p className={classes.error_message}>{errors.password.message}</p>
 			)}
 
-			<div className={classes.form_after}>
-				<span>Don`t have an account?</span>
-				<NavLink to='/register' className={classes.form_after_link}>
+			<div className={classes.accountSection}>
+				<span className={classes.accountMessage}>Don't have an account?</span>
+				<Link to='/register' className={classes.form_after_link}>
 					Register
-				</NavLink>
+				</Link>
 			</div>
-			<button type='submit' className={classes.btn}>
+			<Button type='submit' theme='blue' size='lg'>
 				login
-			</button>
+			</Button>
 		</form>
 	);
 };

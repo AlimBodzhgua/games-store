@@ -1,18 +1,20 @@
 import { InputHTMLAttributes, ReactNode, forwardRef } from 'react';
+import classnames from 'classnames';
 import classes from './input.module.css';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+	className?: string;
 	addonBefore?: ReactNode;
 	addonAfter?: ReactNode;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-	const { addonBefore, addonAfter, ...otherProps } = props;
+	const { className, addonBefore, addonAfter, ...otherProps } = props;
 
 	return (
-		<div className={classes.input}>
+		<div className={classnames(classes.input, className)}>
 			{addonBefore}
-			<input ref={ref} {...otherProps} />
+			<input ref={ref} {...otherProps} className={classes.field}/>
 			{addonAfter}
 		</div>
 	);

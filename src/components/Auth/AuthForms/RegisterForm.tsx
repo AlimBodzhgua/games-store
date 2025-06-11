@@ -1,8 +1,10 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAction } from '@/hooks/useAction';
 import { InputPassword } from '@/components/UI/Input/InputPassword';
 import { Input } from '@/components/UI/Input/Input';
+import { Button } from '@/components/UI/Button/Button';
+import { Link } from '@/components/UI/Link/Link';
 import defaultImage from '@/assets/default-image.jpg';
 import classes from './auth-forms.module.css';
 
@@ -45,7 +47,7 @@ export const RegisterForm = () => {
 					},
 				})}
 				type='text'
-				className={classes.input__dark}
+				className={classes.input}
 				placeholder='Name'
 			/>
 			{errors.login && <p className={classes.error_message}>{errors.login.message}</p>}
@@ -58,7 +60,7 @@ export const RegisterForm = () => {
 					},
 				})}
 				type='email'
-				className={classes.input__dark}
+				className={classes.input}
 				placeholder='Email'
 			/>
 			{errors.email && <p className={classes.error_message}>{errors.email.message}</p>}
@@ -74,21 +76,25 @@ export const RegisterForm = () => {
 						message: 'Password must be at least 6 characters long',
 					},
 				})}
-				className={classes.input__dark}
+				className={classes.input}
 			/>
 			{errors.password && (
 				<p className={classes.error_message}>{errors.password.message}</p>
 			)}
 
-			<div className={classes.form_after}>
-				<span>Already have an account?</span>
-				<NavLink to='/login' className={classes.form_after_link}>
+			<div className={classes.accountSection}>
+				<span className={classes.accountMessage}>Already have an account?</span>
+				<Link to='/login'>
 					login
-				</NavLink>
+				</Link>
 			</div>
-			<button type='submit' className={classes.btn}>
+			<Button
+				type='submit'
+				size='lg'
+				theme='blue'
+			>
 				sign up
-			</button>
+			</Button>
 		</form>
 	);
 };

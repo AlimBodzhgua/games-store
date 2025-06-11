@@ -1,5 +1,4 @@
 
-
 .form {
 	display: flex;
 	flex-direction: column;
@@ -9,56 +8,22 @@
 }
 
 
-.input__dark {
+.input {
 	width: 300px;
-	height: 60px;
+	height: 50px;
 
-	padding: 5px 14px;
 	margin-bottom: 14px;
+}
 
-	background-color: #242424;
+
+.accountSection {
+	margin-bottom: 12px;
+}
+
+.accountMessage {
+	font-size: 16px;
 	color: hsla(0, 0%, 100%, .6);
-	font-size: 18px;
-	font-weight: 600;
-
-	border-radius: 4px;
-	border: none;
-	border-bottom: 2px solid hsla(0, 0%, 100%, .6);
-
-	transition: border .2s linear;
-}
-
-.input__dark:focus {
-	outline: none;
-	border-bottom: 2px solid var(--color-blue);
-}
-
-
-
-.btn {
-	width: 300px;
-	height: 60px;
-
-	border-radius: 10px;
-	background-color: #21a4f7;
-	color: #fff;
-	font-weight: 600;
-	font-size: 15px;
-}
-
-.btn:hover {
-	cursor: pointer;
-}
-
-.form_after {
-	color: hsla(0, 0%, 100%, .6);
-	margin: 5px 0;
-}
-
-.form_after_link {
-	color: #fff;
-	margin-left: 5px;
-	text-decoration: none;
+	margin-right: 8px;
 }
 
 .error_message {

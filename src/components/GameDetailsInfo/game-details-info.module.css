@@ -40,6 +40,24 @@
 	gap: 20px;
 }
 
+.meta {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 60%;
+}
+
+.metaItem {
+	width: 50%;
+	text-align: left;
+	margin-bottom: 15px;
+}
+
+.metaTitle {
+	color: hsla(0,0%,100%,.2);
+	margin-bottom: 8px;
+}
+
 .text {
 	margin: 15px 0;
 	padding: 10px 0px;

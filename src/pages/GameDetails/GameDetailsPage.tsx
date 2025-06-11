@@ -11,7 +11,7 @@ import classes from './game.page.module.css';
 export default function GameDetailsPage() {
 	const params = useParams();
 	const { gameDetails, isLoading, error } = useGameDetails(params.id ? +params.id : 0);
-	
+	console.log(gameDetails);
 	const onReload = () => location.reload();
 
 	if (error) {

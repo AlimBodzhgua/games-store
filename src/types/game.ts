@@ -22,6 +22,16 @@ export type Game = {
 	stores: Store[];
 }
 
+export type Publisher = {
+	id: number;
+	name: string;
+}
+
+export type Developer = {
+	id: number;
+	name: string;
+}
+
 export type Screenshot = {
 	id: number;
 	image: string;
@@ -34,14 +44,10 @@ export type Store = {
 
 export interface GameDetails extends Omit<Game, 'short_screenshots'> {
 	tags: Tag[];
-	developers: Developrs[];
+	developers: Developer[];
+	publishers: Publisher[];
+	website: string;
 	description: string;
-	//stores: Store[];
-}
-
-export type Developrs = {
-	id: number;
-	name: string;
 }
 
 export type Platform = {

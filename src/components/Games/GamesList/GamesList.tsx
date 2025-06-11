@@ -6,8 +6,8 @@ import classnames from 'classnames';
 
 import { GamesListSkeleton } from './GamesListSkeleton';
 import classes from './GameList.module.css';
-
 import { GameItem } from '../GameItem/GameItem';
+
 
 interface GamesListProps {
 	games: Game[];

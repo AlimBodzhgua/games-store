@@ -3,7 +3,7 @@ import { GamePlatformsList } from '@/components/GamePlatformsList/GamePlatformsL
 import { MyList } from '@/components/UI/MyList/MyList';
 import { removeTags } from '@/utils/utils';
 import { Link } from '@/components/UI/Link/Link';
-import { StoresList } from 'components/Stores/StoresList';
+import { StoresList } from '@/components/Stores/StoresList';
 import type { GameDetails } from '@/types/game';
 import classes from './game-details-info.module.css';
 

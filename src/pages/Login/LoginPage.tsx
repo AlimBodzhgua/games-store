@@ -1,5 +1,5 @@
 import { LoginForm } from '@/components/AuthForms/LoginForm';
-import classes from './login.pages.module.css';
+import classes from './login.page.module.css';
 
 export const LoginPage = () => {
 

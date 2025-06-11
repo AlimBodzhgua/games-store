@@ -65,14 +65,14 @@ export const GameDetailsInfo: FC<GameDetailsInfoProps> = ({ game }) => {
 				<div className={classes.metaItem}>
 					<h4 className={classes.metaTitle}>Developer</h4>
 					{developers.map((developer) => (
-						<div>{developer.name}</div>
+						<div key={developer.id}>{developer.name}</div>
 					))}
 				</div>
 
 				<div className={classes.metaItem}>
 					<h4 className={classes.metaTitle}>Publisher</h4>
 					{publishers.map((publisher) => (
-						<div>{publisher.name}</div>
+						<div key={publisher.id}>{publisher.name}</div>
 					))}
 				</div>
 			</div>

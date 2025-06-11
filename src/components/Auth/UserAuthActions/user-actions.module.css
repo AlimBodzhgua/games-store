@@ -1,0 +1,15 @@
+
+.actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 15%;
+	gap: 10px;
+}
+
+.icon {
+	fill: red;
+	width: 18px;
+	height: 18px;
+	margin-left: 8px;
+}

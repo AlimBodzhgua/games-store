@@ -1,4 +1,4 @@
-import { RegisterForm } from '@/components/AuthForms/RegisterForm';
+import { RegisterForm } from '@/components/Auth';
 import classes from './register.page.module.css';
 
 const RegisterPage = () => {

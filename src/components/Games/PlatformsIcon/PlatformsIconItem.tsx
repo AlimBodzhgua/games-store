@@ -22,7 +22,7 @@ interface PlatformsIconItemProps {
 export const PlatformsIconItem: FC<PlatformsIconItemProps> = (props) => {
 	const { icon } = props;
 	// @ts-ignore
-	const imgUrl = new URL(`../../../assets/icons/${icon}_icon.svg`, import.meta.url).href
+	const imgUrl = new URL(`../../../assets/platforms/icons/${icon}_icon.svg`, import.meta.url).href
 
 	return (
 		!excludedIcon.includes(icon) && (

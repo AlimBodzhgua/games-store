@@ -34,3 +34,11 @@ ol, ul {
     margin: 0;
     list-style-type: none;
 }
+
+.loader {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+}

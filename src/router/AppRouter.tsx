@@ -10,13 +10,15 @@ export const AppRouter = () => {
 	return (
 		<Suspense
 			fallback={
-				<RotatingLines
-					strokeColor='grey'
-					strokeWidth='5'
-					animationDuration='0.75'
-					width='55'
-					visible={true}
-				/>
+				<div className='loader'>
+					<RotatingLines
+						strokeColor='grey'
+						strokeWidth='5'
+						animationDuration='0.75'
+						width='55'
+						visible={true}
+					/>
+				</div>
 			}
 		>
 			<Routes>

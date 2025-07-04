@@ -1,4 +1,5 @@
 import React, { ErrorInfo, ReactNode } from 'react';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 
 type ErrorBoundaryProps = {
 	children: ReactNode;
@@ -27,7 +28,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 		const { hasError } = this.state;
 		const { children } = this.props;
 
-		if (hasError) return <h1>Error</h1>
+		if (hasError) return <ErrorMessage />;
 
 		return children;
 	}

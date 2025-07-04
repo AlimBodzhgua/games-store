@@ -6,7 +6,7 @@ export type User = {
 	token: string;
 	login: string;
 	img: string;
-	library: Game[]
+	library: Game[];
 }
 
 export type LoginUserDTO = Pick<User, 'email'> & { password: string };

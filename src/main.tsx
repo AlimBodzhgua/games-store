@@ -3,13 +3,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import { App } from './App';
+import { ErrorBoundary } from './components/ErrorBounadry/ErrorBoundary';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 
 root.render(
-	<BrowserRouter>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</BrowserRouter>,
+	<ErrorBoundary>
+		<BrowserRouter>
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</BrowserRouter>,
+	</ErrorBoundary>
 );

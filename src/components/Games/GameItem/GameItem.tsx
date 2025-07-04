@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useAction } from '@/hooks/useAction';
 import { getFirstWord } from '@/utils/utils';
 import { useAppSelector } from '@/hooks/redux';
-import { selectUserData } from '@/redux/selectors/userSelectors';
+import { selectUserData, selectUserLibrary } from '@/redux/selectors/userSelectors';
 import { useHover } from '@/hooks/useHover';
 import { Button } from '@/components/UI/Button/Button';
 import { ScreenshotsList } from '@/components/GameScreenshots/ScreenshotsList';
@@ -27,12 +27,13 @@ export const GameItem: FC<GameItemProps> = (props) => {
 
 	const { addGameAction, removeGameAction } = useAction();
 	const userData = useAppSelector(selectUserData);
+	const userLibarary = useAppSelector(selectUserLibrary);
 
 	const navigate = useNavigate();
 	const location = useLocation();
 
 	const isInLibrary = (checkGame: Game) => {
-		if (userData) {
+		if (userData && userLibarary.length) {
 			let inLibrary = false;
 			userData.library.forEach((game) => {
 				if (game.id === checkGame.id) {
